@@ -19,7 +19,8 @@ class AIChat {
     constructor() {
         // CONFIGURATION: API settings
         this.apiKey = null; // Will be set from environment or config
-        this.apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+        // Updated to use gemini-1.5-flash which replaced the deprecated gemini-pro model
+        this.apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
         
         // Chat configuration
         this.maxTokens = 1000;
