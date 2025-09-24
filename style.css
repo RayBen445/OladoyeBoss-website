@@ -172,6 +172,41 @@ nav a:hover {
     border-radius: 5px;
 }
 
+/* Form Status Messages */
+#formStatus {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#formStatus.status-success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+#formStatus.status-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+#formStatus.status-loading {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+}
+
+#formStatus:empty {
+    padding: 0;
+    margin-top: 0;
+    border: none;
+    background: none;
+}
+
 /* Footer */
 footer {
     text-align: center;
