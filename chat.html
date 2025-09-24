@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat - Oladoye Author and Kingdom Voice</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="ai-chat.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Oladoye Author and Kingdom Voice</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="books.html">Book Store</a></li>
+                    <li><a href="videos.html">Video Store</a></li>
+                    <li><a href="chat.html" class="active">AI Chat</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Chat with AI Assistant</h1>
+                <p class="page-subtitle">Ask questions about faith, books, ministry, or get spiritual guidance</p>
+            </div>
+        </section>
+
+        <section class="chat-content">
+            <div class="container">
+                <div class="chat-layout">
+                    <div class="chat-sidebar animate-on-scroll">
+                        <div class="chat-info-card">
+                            <div class="ai-avatar">
+                                <div class="ai-icon">🤖</div>
+                            </div>
+                            <h3>AI Assistant</h3>
+                            <p class="ai-description">I'm here to help answer your questions about faith, ministry, books, and provide spiritual guidance based on biblical principles.</p>
+                            
+                            <div class="chat-features">
+                                <h4>What I can help with:</h4>
+                                <ul>
+                                    <li>📖 Biblical questions and interpretations</li>
+                                    <li>🙏 Prayer guidance and spiritual advice</li>
+                                    <li>📚 Book recommendations</li>
+                                    <li>⛪ Ministry and leadership questions</li>
+                                    <li>💭 General faith discussions</li>
+                                </ul>
+                            </div>
+
+                            <div class="chat-tips">
+                                <h4>Chat Tips:</h4>
+                                <ul>
+                                    <li>Be specific with your questions</li>
+                                    <li>Ask about scripture references</li>
+                                    <li>Request prayer topics</li>
+                                    <li>Discuss spiritual challenges</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="suggested-questions">
+                            <h4>Suggested Questions:</h4>
+                            <div class="suggestion-buttons">
+                                <button class="suggestion-btn" data-question="What does the Bible say about finding purpose in life?">Finding Purpose</button>
+                                <button class="suggestion-btn" data-question="How can I strengthen my prayer life?">Prayer Life</button>
+                                <button class="suggestion-btn" data-question="What are some good Christian books for spiritual growth?">Book Recommendations</button>
+                                <button class="suggestion-btn" data-question="How do I deal with doubt in my faith?">Faith Doubts</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-main animate-on-scroll">
+                        <div class="chat-container">
+                            <div class="chat-header">
+                                <div class="chat-status">
+                                    <span class="status-indicator" id="statusIndicator">●</span>
+                                    <span class="status-text" id="statusText">Ready to chat</span>
+                                </div>
+                                <button class="clear-chat-btn" id="clearChatBtn" title="Clear conversation">
+                                    🗑️ Clear Chat
+                                </button>
+                            </div>
+
+                            <div class="chat-messages" id="chatMessages">
+                                <div class="message ai-message animate-on-scroll">
+                                    <div class="message-avatar">🤖</div>
+                                    <div class="message-content">
+                                        <div class="message-text">
+                                            Hello! I'm your AI assistant, here to help with questions about faith, ministry, books, and spiritual guidance. Feel free to ask me anything!
+                                        </div>
+                                        <div class="message-time">Just now</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chat-input-container">
+                                <form class="chat-form" id="chatForm">
+                                    <div class="input-group">
+                                        <textarea 
+                                            id="messageInput" 
+                                            placeholder="Ask me about faith, ministry, books, or spiritual guidance..."
+                                            rows="1"
+                                            maxlength="1000"
+                                        ></textarea>
+                                        <button type="submit" id="sendButton" class="send-btn" disabled>
+                                            <span class="send-icon">➤</span>
+                                            <span class="send-text">Send</span>
+                                        </button>
+                                    </div>
+                                    <div class="input-footer">
+                                        <span class="char-counter">
+                                            <span id="charCount">0</span>/1000
+                                        </span>
+                                        <span class="ai-disclaimer">
+                                            Powered by Google AI
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="api-status-banner" id="apiStatusBanner">
+                    <div class="banner-content">
+                        <div class="banner-icon">⚠️</div>
+                        <div class="banner-text">
+                            <strong>AI Chat Configuration Required</strong>
+                            <p>To enable AI chat functionality, please configure your Google AI API key in the deployment environment.</p>
+                        </div>
+                        <button class="banner-close" onclick="this.parentElement.parentElement.style.display='none'">×</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Oladoye Author and Kingdom Voice. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
