@@ -1,0 +1,56 @@
+{
+  "books": [
+    {
+      "id": "selar-test-book-123",
+      "title": "Test New Book",
+      "author": "Faithjesus Oladoye",
+      "description": "A test book added via webhook",
+      "price": 24.99,
+      "currency": "USD",
+      "image": "https://via.placeholder.com/300x450.png?text=Test+Book",
+      "rating": 5,
+      "pages": 200,
+      "category": "Spiritual Growth",
+      "features": [
+        "📖 200 Pages",
+        "✨ Spiritual Growth",
+        "🎯 Inspirational"
+      ],
+      "previewUrl": "#",
+      "purchaseUrl": "https://selar.com/m/OladoyeStore/test-book",
+      "isNew": true,
+      "dateAdded": "2025-09-24T19:26:36.856Z",
+      "selarData": {
+        "id": "test-book-123",
+        "name": "Test New Book",
+        "description": "A test book added via webhook",
+        "price": "24.99",
+        "currency": "USD",
+        "image_url": "https://via.placeholder.com/300x450.png?text=Test+Book",
+        "url": "https://selar.com/m/OladoyeStore/test-book"
+      }
+    },
+    {
+      "id": "sample-book-1",
+      "title": "Kingdom Voice: Living God's Purpose",
+      "author": "Faithjesus Oladoye",
+      "description": "A comprehensive guide to discovering and living out God's purpose for your life. This book combines biblical wisdom with practical applications to help you walk confidently in your calling.",
+      "price": 19.99,
+      "currency": "USD",
+      "image": "https://via.placeholder.com/300x450.png?text=Latest+Book+Cover",
+      "rating": 4.8,
+      "pages": 250,
+      "category": "Self-Help",
+      "features": [
+        "📖 250 Pages",
+        "🎯 Self-Help",
+        "✨ Spiritual Growth"
+      ],
+      "previewUrl": "#",
+      "purchaseUrl": "https://selar.com/m/OladoyeStore",
+      "isNew": true,
+      "dateAdded": "2025-01-01T00:00:00Z"
+    }
+  ],
+  "lastUpdated": "2025-09-24T19:26:36.856Z"
+}

@@ -1,17 +1,59 @@
-# Oladoye Author and Kingdom Voice Website
-
 # Faithjesus Oladoye - Author & Kingdom Voice Website
 
-A personal website for Faithjesus Oladoye featuring blog posts, book store, video store, AI chat functionality, and contact functionality with Telegram bot integration.
+A personal website for Faithjesus Oladoye featuring blog posts, book store, video store, AI chat functionality, and **real-time integration** with Selar (book store) and YouTube (video content).
+
+## ✨ New Features
+
+### 🔄 Real-time Integration
+- **Selar Book Store Integration**: Automatically displays new books when added to your Selar store
+- **YouTube Channel Integration**: Automatically fetches and displays new videos from your YouTube channel
+- **Live Updates**: Content updates automatically without page refresh
+- **Homepage Features**: Latest books and videos prominently displayed on homepage
+
+### 📚 Dynamic Book Store
+- Real-time synchronization with Selar store
+- Webhook integration for instant updates
+- Responsive book display with ratings and purchase links
+- Auto-refresh every 30 seconds
+
+### 🎥 Dynamic Video Store  
+- Integration with YouTube Data API v3
+- Automatic video categorization (Sermons, Teachings, Inspiration)
+- Video filtering and search functionality
+- Auto-refresh every 60 seconds
 
 ## Features
 
 - **Responsive Design**: Mobile-first, fully responsive layout
+- **Real-time Content**: Live integration with Selar and YouTube
 - **AI Chat Assistant**: Powered by Google AI (Gemini) for spiritual guidance and biblical questions
 - **Telegram Integration**: Contact form submissions sent directly to Telegram
 - **Interactive Elements**: Smooth animations and transitions
 - **SEO Optimized**: Semantic HTML structure with proper meta tags
 - **Video Logo Support**: Animated video logo with fallback
+
+## 🚀 Quick Setup
+
+### Required Environment Variables
+
+```bash
+# For YouTube integration (required)
+YOUTUBE_API_KEY=your_youtube_data_api_v3_key
+
+# For Selar webhook security (recommended)
+SELAR_WEBHOOK_SECRET=your_secure_webhook_secret
+
+# For AI chat (optional)
+GOOGLE_AI_API_KEY=your_google_ai_key
+```
+
+### Deployment
+
+1. **Set environment variables** in your hosting platform
+2. **Configure Selar webhook** to point to `https://yourdomain.com/api/selar-webhook`
+3. **Deploy** - All integrations work automatically!
+
+📖 **[Complete Setup Guide](INTEGRATION-SETUP.md)**
 
 ## AI Chat Setup
 

@@ -1891,3 +1891,225 @@ footer {
         align-self: flex-start;
     }
 }
+
+/* Featured Books and Videos on Homepage */
+.featured-books, .featured-videos {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.featured-books:nth-child(odd) {
+    background: white;
+}
+
+.featured-books-grid, .featured-videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.featured-book-item, .featured-video-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-book-item:hover, .featured-video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.featured-book-cover {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.featured-book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.featured-book-info, .featured-video-info {
+    padding: 20px;
+}
+
+.featured-book-info h3, .featured-video-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.featured-book-author {
+    color: var(--muted-text);
+    font-size: 0.9rem;
+    margin: 0 0 10px 0;
+}
+
+.featured-book-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 0 0 15px 0;
+}
+
+.featured-video-meta {
+    color: var(--muted-text);
+    font-size: 0.85rem;
+    margin: 0 0 10px 0;
+}
+
+.featured-video-meta span {
+    margin-right: 15px;
+}
+
+.featured-video-stats {
+    color: var(--muted-text);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.featured-video-thumbnail {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.featured-video-thumbnail iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.featured-placeholder {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted-text);
+    grid-column: 1 / -1;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Real-time update notifications */
+.book-notification, .video-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    animation: slideInRight 0.3s ease;
+}
+
+.book-notification {
+    background: #4CAF50;
+}
+
+.video-notification {
+    background: #FF4444;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-content button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.notification-content button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideInRight {
+    from { 
+        transform: translateX(100%); 
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1;
+    }
+}
+
+/* Error states */
+.books-error, .videos-error {
+    background: #fee;
+    border: 1px solid #fcc;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.error-content p {
+    margin: 0 0 15px 0;
+    color: #c33;
+}
+
+.error-content button {
+    background: #c33;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.error-content button:hover {
+    background: #a22;
+}
+
+/* Responsive adjustments for featured sections */
+@media (max-width: 768px) {
+    .featured-books-grid, .featured-videos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .featured-books, .featured-videos {
+        padding: 40px 0;
+    }
+    
+    .book-notification, .video-notification {
+        right: 10px;
+        left: 10px;
+        font-size: 0.9rem;
+    }
+}
