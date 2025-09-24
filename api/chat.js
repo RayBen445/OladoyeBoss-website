@@ -103,7 +103,8 @@ Keep responses conversational, helpful, and rooted in Christian values.`;
         };
 
         // Make request to Google AI API
-        const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+        // Updated to use gemini-1.5-flash which replaced the deprecated gemini-pro model
+        const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
         const response = await fetch(`${apiUrl}?key=${apiKey}`, {
             method: 'POST',
             headers: {

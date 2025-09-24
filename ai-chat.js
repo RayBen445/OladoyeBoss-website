@@ -19,7 +19,8 @@ class AIChat {
     constructor() {
         // CONFIGURATION: API settings
         this.apiKey = null; // Will be set from environment or config
-        this.apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+        // Updated to use gemini-1.5-flash which replaced the deprecated gemini-pro model
+        this.apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
         
         // Chat configuration
         this.maxTokens = 1000;
@@ -59,53 +60,84 @@ class AIChat {
      */
     async loadAPIKey() {
         try {
-            // Test the backend API endpoint
-            const response = await fetch('/api/chat', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    message: 'test' // Simple test message
-                })
+            // Test the backend API endpoint with a minimal OPTIONS request first
+            const optionsResponse = await fetch('/api/chat', {
+                method: 'OPTIONS'
             });
 
-            if (response.ok) {
-                // Backend is configured properly
-                this.apiKey = 'BACKEND_CONFIGURED'; // Flag to indicate backend is available
-                this.hideAPIKeyWarning();
-                return true;
-            } else {
+            // If OPTIONS works, test with a minimal POST to check configuration
+            if (optionsResponse.ok || optionsResponse.status === 200) {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: '' // Empty message to test endpoint without consuming API quota
+                    })
+                });
+
+                if (response.ok) {
+                    // Backend is configured properly
+                    this.apiKey = 'BACKEND_CONFIGURED'; // Flag to indicate backend is available
+                    this.hideAPIKeyWarning();
+                    return true;
+                } else if (response.status === 500) {
+                    // Check if it's an API configuration error
+                    const errorData = await response.json();
+                    if (errorData.error === 'API configuration error') {
+                        console.error('Backend API configuration error: API key not set');
+                        this.showAPIKeyWarning('Backend is available but Google AI API key is not configured.');
+                        return false;
+                    }
+                } else if (response.status === 400) {
+                    // Bad request likely means endpoint is working but message was invalid
+                    // This is actually good news - the backend is configured
+                    this.apiKey = 'BACKEND_CONFIGURED';
+                    this.hideAPIKeyWarning();
+                    return true;
+                }
+                
                 const errorData = await response.json();
-                console.error('Backend API configuration error:', errorData);
-                this.showAPIKeyWarning();
+                console.error('Backend API error:', errorData);
+                this.showAPIKeyWarning('Backend API encountered an error.');
                 return false;
             }
         } catch (error) {
-            console.warn('Backend API not available, checking for direct client configuration...');
-            
-            // Fallback: Check if there's a client-side configuration (not recommended for production)
-            // This allows local development with direct API key configuration
-            if (window.GOOGLE_AI_API_KEY && window.GOOGLE_AI_API_KEY !== 'YOUR_GOOGLE_AI_API_KEY_HERE') {
-                this.apiKey = window.GOOGLE_AI_API_KEY;
-                this.hideAPIKeyWarning();
-                console.warn('⚠️ Using client-side API key. This is not recommended for production.');
-                return true;
-            }
-            
-            this.showAPIKeyWarning();
-            return false;
+            console.warn('Backend API not available, checking for direct client configuration...', error.message);
         }
+        
+        // Fallback: Check if there's a client-side configuration (not recommended for production)
+        // This allows local development with direct API key configuration
+        if (window.GOOGLE_AI_API_KEY && window.GOOGLE_AI_API_KEY !== 'YOUR_GOOGLE_AI_API_KEY_HERE') {
+            this.apiKey = window.GOOGLE_AI_API_KEY;
+            this.hideAPIKeyWarning();
+            console.warn('⚠️ Using client-side API key. This is not recommended for production.');
+            return true;
+        }
+        
+        // No backend API and no client-side configuration
+        this.showAPIKeyWarning('Backend API endpoint not available. Please use a development server with API support.');
+        return false;
     }
 
     /**
      * Show API key configuration warning
      */
-    showAPIKeyWarning() {
+    showAPIKeyWarning(customMessage = null) {
         if (this.apiStatusBanner) {
             this.apiStatusBanner.style.display = 'block';
+            
+            // Update the banner message if a custom message is provided
+            if (customMessage) {
+                const bannerTextElement = this.apiStatusBanner.querySelector('.banner-text p');
+                if (bannerTextElement) {
+                    bannerTextElement.innerHTML = customMessage + 
+                        '<br><small>The backend API endpoint at <code>/api/chat</code> needs to be configured with your API key for secure operation.</small>';
+                }
+            }
         }
-        this.updateStatus('error', 'API key required');
+        this.updateStatus('error', 'API configuration needed');
         this.sendButton.disabled = true;
     }
 
@@ -255,13 +287,32 @@ class AIChat {
             
         } catch (error) {
             console.error('Error getting AI response:', error);
-            this.addMessage('Sorry, I encountered an error. Please try again later.', 'ai', true);
-            this.updateStatus('error', 'Error occurred');
+            
+            // Provide more specific error messages based on error type
+            let errorMessage = 'Sorry, I encountered an error. Please try again later.';
+            let statusMessage = 'Error occurred';
+            
+            if (error.message.includes('API configuration error')) {
+                errorMessage = 'The AI service is not properly configured. Please contact the administrator.';
+                statusMessage = 'Configuration error';
+                this.showAPIKeyWarning('Google AI API key is not configured on the server.');
+            } else if (error.message.includes('Network')) {
+                errorMessage = 'Network connection error. Please check your internet connection and try again.';
+                statusMessage = 'Network error';
+            } else if (error.message.includes('rate limit') || error.message.includes('quota')) {
+                errorMessage = 'The AI service is temporarily unavailable due to usage limits. Please try again later.';
+                statusMessage = 'Service limit reached';
+            }
+            
+            this.addMessage(errorMessage, 'ai', true);
+            this.updateStatus('error', statusMessage);
             
             // Reset to ready after a delay
             setTimeout(() => {
-                this.updateStatus('ready', 'Ready to chat');
-            }, 3000);
+                if (this.apiKey && this.apiKey !== 'YOUR_GOOGLE_AI_API_KEY_HERE') {
+                    this.updateStatus('ready', 'Ready to chat');
+                }
+            }, 5000);
         }
     }
 

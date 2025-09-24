@@ -30,7 +30,51 @@ The AI Chat feature requires proper backend configuration to securely handle API
 1. Set the environment variable `GOOGLE_AI_API_KEY` in your deployment platform
 2. Ensure the `/api/chat` endpoint is properly configured (see `api/chat.js`)
 
-### Local Development (Optional)
+### Local Development
+
+The project includes a development server that provides API endpoint support for local testing:
+
+#### Using the Development Server (Recommended):
+```bash
+# Install Node.js dependencies (if any)
+npm install
+
+# Start the development server
+npm run dev
+# or
+node dev-server.mjs
+```
+
+This will start a server at `http://localhost:3000` with:
+- Static file serving for all HTML, CSS, JS files
+- `/api/chat` endpoint that proxies to the actual API handler
+- Proper CORS configuration for local development
+
+#### Using Python Server (Static files only):
+```bash
+# Alternative for static files only (no API support)
+npm run dev-static
+# or
+python3 -m http.server 8000
+```
+
+Note: The Python server won't provide API endpoint support, so the AI chat will show configuration warnings.
+
+#### Environment Setup for Local Development:
+To enable AI chat functionality locally, set the environment variable:
+
+```bash
+# Unix/Linux/macOS
+export GOOGLE_AI_API_KEY="your_api_key_here"
+
+# Windows
+set GOOGLE_AI_API_KEY=your_api_key_here
+
+# Then run the development server
+npm run dev
+```
+
+### Alternative: Client-side Configuration (Development Only)
 
 For local testing only:
 1. Copy `ai-config.example.js` to `ai-config.js`
@@ -44,10 +88,17 @@ For local testing only:
 
 ### Testing the AI Chat
 
-1. Navigate to the AI Chat page
+1. Navigate to the AI Chat page (`/chat.html`)
 2. If configured correctly, the warning banner should disappear
 3. Type a message and test the functionality
 4. Check browser console for any error messages
+
+### Error Messages
+
+The chat interface provides helpful error messages:
+- **"Backend is available but Google AI API key is not configured"**: API endpoint is working but needs environment variable
+- **"Backend API endpoint not available"**: Using static file server without API support
+- **"API configuration needed"**: Various configuration issues
 
 ## File Structure
 
@@ -59,10 +110,12 @@ For local testing only:
 ├── videos.html             # Video library
 ├── chat.html               # AI Chat page
 ├── contact.html            # Contact form
+├── favicon.ico             # Website favicon (16x16 icon)
 ├── style.css               # Main stylesheet
 ├── script.js               # Main JavaScript
 ├── ai-chat.js              # AI Chat functionality
 ├── telegram-contact.js     # Telegram bot integration
+├── dev-server.mjs          # Local development server with API support
 ├── api/
 │   ├── chat.js            # Backend API for AI chat (Vercel function)
 │   └── README.md          # Backend configuration guide
