@@ -1,0 +1,22 @@
+{
+  "books": [
+    {
+      "id": "sample-book-1",
+      "title": "Kingdom Voice: Living God's Purpose",
+      "author": "Faithjesus Oladoye",
+      "description": "A comprehensive guide to discovering and living out God's purpose for your life. This book combines biblical wisdom with practical applications to help you walk confidently in your calling.",
+      "price": 19.99,
+      "currency": "USD",
+      "image": "https://via.placeholder.com/300x450.png?text=Latest+Book+Cover",
+      "rating": 4.8,
+      "pages": 250,
+      "category": "Self-Help",
+      "features": ["📖 250 Pages", "🎯 Self-Help", "✨ Spiritual Growth"],
+      "previewUrl": "#",
+      "purchaseUrl": "https://selar.com/m/OladoyeStore",
+      "isNew": true,
+      "dateAdded": "2025-01-01T00:00:00Z"
+    }
+  ],
+  "lastUpdated": "2025-01-01T00:00:00Z"
+}

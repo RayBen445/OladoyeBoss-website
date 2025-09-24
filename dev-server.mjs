@@ -20,8 +20,12 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Import the chat API handler - note: this will need fetch to be available
+// Import API handlers - note: these will need fetch to be available
 import chatHandler from './api/chat.js';
+import booksHandler from './api/books.js';
+import videosHandler from './api/videos.js';
+import selarWebhookHandler from './api/selar-webhook.js';
+import youtubeHandler from './api/youtube.js';
 
 const PORT = 3000;
 const ROOT_DIR = __dirname;
@@ -62,49 +66,78 @@ function serveStaticFile(res, filePath) {
 }
 
 async function handleApiRequest(req, res, pathname) {
-    if (pathname === '/api/chat') {
-        // Create a mock Vercel request/response interface
-        const body = [];
-        req.on('data', chunk => body.push(chunk));
-        req.on('end', async () => {
-            try {
-                // Parse request body
-                const bodyData = Buffer.concat(body).toString();
-                req.body = bodyData ? JSON.parse(bodyData) : {};
-                
-                // Mock Vercel's response methods
-                const mockRes = {
-                    setHeader: (name, value) => res.setHeader(name, value),
-                    status: (code) => {
-                        res.statusCode = code;
-                        return mockRes;
-                    },
-                    json: (data) => {
-                        res.setHeader('Content-Type', 'application/json');
-                        res.end(JSON.stringify(data));
-                        return mockRes;
-                    },
-                    end: () => res.end()
-                };
-                
-                // Call the actual API handler
-                await chatHandler(req, mockRes);
-                
-            } catch (error) {
-                console.error('API Error:', error);
-                res.writeHead(500, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ 
-                    error: 'Internal server error', 
-                    message: 'Failed to process API request. Check that GOOGLE_AI_API_KEY is set.' 
-                }));
-            }
-        });
+    // Map of API endpoints to handlers
+    const apiHandlers = {
+        '/api/chat': chatHandler,
+        '/api/books': booksHandler,
+        '/api/videos': videosHandler,
+        '/api/selar-webhook': selarWebhookHandler,
+        '/api/youtube': youtubeHandler
+    };
+
+    const handler = apiHandlers[pathname];
+    if (!handler) {
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'API endpoint not found' }));
         return;
     }
-    
-    // API endpoint not found
-    res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ error: 'API endpoint not found' }));
+
+    // Create a mock Vercel request/response interface
+    const body = [];
+    req.on('data', chunk => body.push(chunk));
+    req.on('end', async () => {
+        try {
+            // Parse request body for POST requests
+            const bodyData = Buffer.concat(body).toString();
+            if (bodyData && req.method === 'POST') {
+                try {
+                    req.body = JSON.parse(bodyData);
+                } catch (parseError) {
+                    req.body = bodyData;
+                }
+            } else {
+                req.body = {};
+            }
+            
+            // Parse query parameters
+            const parsedUrl = url.parse(req.url, true);
+            req.query = parsedUrl.query;
+            
+            // Mock Vercel's response methods
+            const mockRes = {
+                setHeader: (name, value) => res.setHeader(name, value),
+                status: (code) => {
+                    res.statusCode = code;
+                    return mockRes;
+                },
+                json: (data) => {
+                    res.setHeader('Content-Type', 'application/json');
+                    res.end(JSON.stringify(data));
+                    return mockRes;
+                },
+                end: (data) => {
+                    if (data) {
+                        res.end(data);
+                    } else {
+                        res.end();
+                    }
+                    return mockRes;
+                }
+            };
+            
+            // Call the actual API handler
+            await handler(req, mockRes);
+            
+        } catch (error) {
+            console.error(`API Error (${pathname}):`, error);
+            res.writeHead(500, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ 
+                error: 'Internal server error', 
+                message: `Failed to process API request for ${pathname}`,
+                details: process.env.NODE_ENV === 'development' ? error.message : undefined
+            }));
+        }
+    });
 }
 
 const server = http.createServer(async (req, res) => {
@@ -158,11 +191,21 @@ server.listen(PORT, () => {
     console.log(`📁 Serving files from: ${ROOT_DIR}`);
     console.log(`🔌 API endpoints available at /api/*`);
     console.log('');
-    console.log('💡 To enable AI chat functionality, set environment variable:');
-    console.log('   export GOOGLE_AI_API_KEY="your_api_key_here"');
+    console.log('💡 To enable features, set environment variables:');
+    console.log('   export GOOGLE_AI_API_KEY="your_google_ai_key"    # For AI chat');
+    console.log('   export YOUTUBE_API_KEY="your_youtube_api_key"    # For video updates');
+    console.log('   export SELAR_WEBHOOK_SECRET="your_webhook_secret" # For book updates');
     console.log('');
     console.log('Available pages:');
     console.log(`  • Home: http://localhost:${PORT}/`);
+    console.log(`  • Books: http://localhost:${PORT}/books.html`);
+    console.log(`  • Videos: http://localhost:${PORT}/videos.html`);
     console.log(`  • Chat: http://localhost:${PORT}/chat.html`);
-    console.log(`  • API:  http://localhost:${PORT}/api/chat`);
+    console.log('');
+    console.log('API endpoints:');
+    console.log(`  • Chat: http://localhost:${PORT}/api/chat`);
+    console.log(`  • Books: http://localhost:${PORT}/api/books`);
+    console.log(`  • Videos: http://localhost:${PORT}/api/videos`);
+    console.log(`  • YouTube polling: http://localhost:${PORT}/api/youtube`);
+    console.log(`  • Selar webhook: http://localhost:${PORT}/api/selar-webhook`);
 });
