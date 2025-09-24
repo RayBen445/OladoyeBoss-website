@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Oladoye Author and Kingdom Voice</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="telegram-contact.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Oladoye Author and Kingdom Voice</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="books.html">Book Store</a></li>
+                    <li><a href="videos.html">Video Store</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Get In Touch</h1>
+                <p class="page-subtitle">I'd love to hear from you</p>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info animate-on-scroll">
+                        <h2>Let's Connect</h2>
+                        <p>Whether you have questions about my books, want to discuss ministry topics, or simply want to say hello, I'm here to listen and help.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-details">
+                                    <h3>Email</h3>
+                                    <p>Send me a direct message</p>
+                                    <a href="mailto:oladoyejoel3@gmail.com">oladoyejoel3@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="contact-icon">💬</div>
+                                <div class="contact-details">
+                                    <h3>Telegram</h3>
+                                    <p>Messages sent via the form go directly to my Telegram</p>
+                                    <span>Instant notifications enabled</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="contact-icon">📱</div>
+                                <div class="contact-details">
+                                    <h3>Response Time</h3>
+                                    <p>I typically respond within</p>
+                                    <span>24-48 hours</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-topics">
+                            <h3>What can I help you with?</h3>
+                            <ul>
+                                <li>✅ Book questions and recommendations</li>
+                                <li>✅ Speaking engagements</li>
+                                <li>✅ Ministry partnerships</li>
+                                <li>✅ Prayer requests</li>
+                                <li>✅ General inquiries</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-section animate-on-scroll">
+                        <div class="form-container">
+                            <h2>Send Me a Message</h2>
+                            <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+                            
+                            <form id="contactForm" class="contact-form">
+                                <div class="form-group">
+                                    <label for="name">Your Name *</label>
+                                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <select id="subject" name="subject">
+                                        <option value="">Select a topic</option>
+                                        <option value="book-inquiry">Book Inquiry</option>
+                                        <option value="speaking">Speaking Engagement</option>
+                                        <option value="ministry">Ministry Partnership</option>
+                                        <option value="prayer">Prayer Request</option>
+                                        <option value="general">General Question</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message">Your Message *</label>
+                                    <textarea id="message" name="message" rows="6" required placeholder="Tell me what's on your mind..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="button primary submit-btn">
+                                        <span class="btn-text">Send Message</span>
+                                        <span class="btn-loading">Sending...</span>
+                                    </button>
+                                </div>
+
+                                <div id="formStatus" class="form-status"></div>
+                            </form>
+
+                            <div class="form-note">
+                                <p><strong>📱 Telegram Integration:</strong> Your message will be sent directly to my Telegram for faster response times!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-cta">
+                    <div class="cta-content">
+                        <h2>Prefer Email?</h2>
+                        <p>You can also reach me directly at my email address for any inquiries.</p>
+                        <a href="mailto:oladoyejoel3@gmail.com" class="button secondary">Send Email</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Oladoye Author and Kingdom Voice. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
