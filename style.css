@@ -121,6 +121,10 @@ header {
     color: rgba(255, 255, 255, 0.9);
     font-style: italic;
     font-weight: 400;
+    /* CONFIGURATION UPDATE: Added smooth transition for rotating biblical quotes */
+    transition: opacity 0.5s ease-in-out;
+    min-height: 1.5em;
+    line-height: 1.4;
 }
 
 /* Video element error handling */
