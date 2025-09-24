@@ -55,30 +55,44 @@ class AIChat {
     }
 
     /**
-     * Load API key from environment or configuration
+     * Check if backend API is available
      */
     async loadAPIKey() {
         try {
-            // In production, this would come from your backend/environment
-            // For now, we'll show a configuration message
-            
-            // Check if running in a production environment with API key
-            if (typeof process !== 'undefined' && process.env && process.env.GOOGLE_AI_API_KEY) {
-                this.apiKey = process.env.GOOGLE_AI_API_KEY;
+            // Test the backend API endpoint
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: 'test' // Simple test message
+                })
+            });
+
+            if (response.ok) {
+                // Backend is configured properly
+                this.apiKey = 'BACKEND_CONFIGURED'; // Flag to indicate backend is available
+                this.hideAPIKeyWarning();
+                return true;
             } else {
-                // For demo purposes - in real deployment, get this from your backend
-                this.apiKey = 'YOUR_GOOGLE_AI_API_KEY_HERE';
-            }
-            
-            if (this.apiKey === 'YOUR_GOOGLE_AI_API_KEY_HERE' || !this.apiKey) {
+                const errorData = await response.json();
+                console.error('Backend API configuration error:', errorData);
                 this.showAPIKeyWarning();
                 return false;
             }
-            
-            this.hideAPIKeyWarning();
-            return true;
         } catch (error) {
-            console.error('Error loading API key:', error);
+            console.warn('Backend API not available, checking for direct client configuration...');
+            
+            // Fallback: Check if there's a client-side configuration (not recommended for production)
+            // This allows local development with direct API key configuration
+            if (window.GOOGLE_AI_API_KEY && window.GOOGLE_AI_API_KEY !== 'YOUR_GOOGLE_AI_API_KEY_HERE') {
+                this.apiKey = window.GOOGLE_AI_API_KEY;
+                this.hideAPIKeyWarning();
+                console.warn('⚠️ Using client-side API key. This is not recommended for production.');
+                return true;
+            }
+            
             this.showAPIKeyWarning();
             return false;
         }
@@ -213,7 +227,7 @@ class AIChat {
         const message = this.messageInput.value.trim();
         if (!message) return;
 
-        // Check API key
+        // Check API key/backend availability
         if (!this.apiKey || this.apiKey === 'YOUR_GOOGLE_AI_API_KEY_HERE') {
             this.showAPIKeyWarning();
             return;
@@ -255,6 +269,43 @@ class AIChat {
      * Get response from Google AI
      */
     async getAIResponse(message) {
+        // If using backend API (recommended approach)
+        if (this.apiKey === 'BACKEND_CONFIGURED') {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: message,
+                    conversationHistory: this.conversationHistory
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || `Backend API Error: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            return data.response;
+        }
+
+        // Fallback: Direct API call (for local development only)
+        // This should only be used in development environments
+        return await this.getDirectAIResponse(message);
+    }
+
+    /**
+     * Direct API call to Google AI (fallback for development)
+     * @private
+     */
+    async getDirectAIResponse(message) {
+        // Check if we have a mock response function for testing
+        if (typeof window.getMockAIResponse === 'function') {
+            return await window.getMockAIResponse(message);
+        }
+
         // Build conversation context for better responses
         const systemPrompt = `You are a helpful AI assistant for Faithjesus Oladoye's website, a Christian author, content creator, and pastor. 
 
