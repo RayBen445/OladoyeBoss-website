@@ -1,6 +1,6 @@
 # Oladoye Author and Kingdom Voice Website
 
-A personal website for Heritage Oladoye featuring blog posts, book store, video store, and contact functionality with Telegram bot integration.
+A personal website for Faithjesus Oladoye featuring blog posts, book store, video store, and contact functionality with Telegram bot integration.
 
 ## Features
 

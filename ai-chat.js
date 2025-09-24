@@ -256,7 +256,7 @@ class AIChat {
      */
     async getAIResponse(message) {
         // Build conversation context for better responses
-        const systemPrompt = `You are a helpful AI assistant for Heritage Oladoye's website, a Christian author, content creator, and pastor. 
+        const systemPrompt = `You are a helpful AI assistant for Faithjesus Oladoye's website, a Christian author, content creator, and pastor. 
 
 Your role is to:
 - Answer questions about faith, Christianity, and biblical topics
