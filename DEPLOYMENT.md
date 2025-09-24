@@ -1,50 +1,47 @@
-# AI Chat Deployment Guide
+# AI Chat Deployment Guide (Vercel)
 
-## Quick Setup (Recommended)
+This guide provides specific instructions for deploying the AI Chat feature, which relies on a Vercel serverless function.
 
-### For Vercel Deployment:
-1. **Get Google AI API Key**: Visit [https://ai.google.dev/](https://ai.google.dev/) and create an API key
-2. **Set Environment Variable**: In your Vercel project dashboard:
-   - Go to Settings → Environment Variables
-   - Add: `GOOGLE_AI_API_KEY` = `your_actual_api_key_here`
-3. **Deploy**: The `/api/chat` endpoint will automatically work
+## Prerequisites
 
-### For Other Platforms (Netlify, etc.):
-1. Set the environment variable `GOOGLE_AI_API_KEY` in your deployment platform
-2. Ensure your platform supports serverless functions or Node.js backend
-3. The API endpoint should be accessible at `/api/chat`
+1.  A [Vercel](https://vercel.com/) account.
+2.  A [GitHub](https://github.com/), [GitLab](https://gitlab.com/), or [Bitbucket](https://bitbucket.org/) account.
+3.  A Google AI API Key from [Google AI Studio](https://aistudio.google.com/).
 
-## How It Works
+## Step-by-Step Deployment
 
-- **Frontend**: `ai-chat.js` attempts to use `/api/chat` backend endpoint first
-- **Backend**: `api/chat.js` securely handles Google AI API calls with server-side API key
-- **Fallback**: Shows configuration banner if backend is not available
-- **Security**: API key is never exposed to the client browser
+### 1. Fork and Clone the Repository
 
-## Testing
+Fork this repository to your own Git account and then clone it to your local machine.
 
-1. Navigate to `/chat.html`
-2. If properly configured, the warning banner should disappear
-3. Try the suggested questions or type your own message
-4. Verify responses are being generated properly
+### 2. Push to Your Git Provider
 
-## Troubleshooting
+Push the repository to your own GitHub, GitLab, or Bitbucket account.
 
-### Banner Still Showing
-- Check that `GOOGLE_AI_API_KEY` environment variable is set
-- Verify the API key is valid
-- Ensure `/api/chat` endpoint is accessible
+### 3. Create a New Vercel Project
 
-### Error Messages
-- Check browser console for detailed error information
-- Verify Google AI API quotas and billing
-- Ensure CORS is properly configured if using custom backend
+- Log in to your Vercel dashboard.
+- Click the "Add New..." button and select "Project".
+- Import the Git repository you just pushed.
 
-## Local Development
+### 4. Configure the Project
 
-For local testing only:
-1. Copy `ai-config.example.js` to `ai-config.js`
-2. Add your API key to the file
-3. Include the script in `chat.html` (remember to remove for production)
+- **Framework Preset:** Vercel should automatically detect that this is a project with no specific framework. If not, select "Other".
+- **Build & Development Settings:** You can leave these as default. The `api` directory will be automatically recognized for serverless functions.
+- **Environment Variables:** This is the most important step.
+    - Navigate to the "Settings" tab of your newly created project.
+    - Click on "Environment Variables" in the left sidebar.
+    - Add a new variable:
+        - **Name:** `GOOGLE_AI_API_KEY`
+        - **Value:** Paste your Google AI API key here.
+    - Ensure the variable is available to all environments (Production, Preview, and Development).
 
-**⚠️ Never commit API keys to version control!**
+### 5. Deploy
+
+- After configuring the environment variable, navigate to the "Deployments" tab.
+- Trigger a new deployment. You can do this by pushing a new commit to your repository or by manually redeploying the latest commit from the Vercel dashboard.
+- Vercel will build and deploy your site. The serverless function in `api/chat.js` will now have access to the `GOOGLE_AI_API_KEY` you provided.
+
+### 6. Verify
+
+Once the deployment is complete, visit your Vercel URL and navigate to the `/chat.html` page. The AI chat should be fully functional. If you encounter errors, check the function logs in the Vercel dashboard for more details.

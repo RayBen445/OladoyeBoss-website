@@ -3,149 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Oladoye Author and Kingdom Voice</title>
+    <title>Blog - Faithjesus Oladoye</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <video class="logo-video" autoplay muted loop playsinline>
-                        <source src="logo.webm" type="video/webm">
-                        <!-- Fallback for browsers that don't support the video -->
-                        <div class="logo-fallback">
-                            <h1>Oladoye Author and Kingdom Voice</h1>
-                        </div>
-                    </video>
-                </div>
-                <div class="site-title">
-                    <h1>Oladoye Author and Kingdom Voice</h1>
-                    <p class="site-tagline rotating-quote" id="rotatingQuote">Faithjesus Oladoye - Author & Pastor</p>
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <video src="logo.webm" class="logo-video" autoplay muted loop playsinline></video>
+                <div class="logo-text">
+                    <h1><a href="index.html">Faithjesus Oladoye</a></h1>
+                    <p class="tagline">"I can do all things through Christ..."</p>
                 </div>
             </div>
-            <nav>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="blog.html" class="active">Blog</a></li>
-                    <li><a href="books.html">Book Store</a></li>
-                    <li><a href="videos.html">Video Store</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="videos.html">Videos</a></li>
                     <li><a href="chat.html">AI Chat</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <button class="mobile-nav-toggle">Menu</button>
         </div>
     </header>
 
     <main>
-        <section class="page-hero">
+        <section class="page-header">
             <div class="container">
-                <h1 class="page-title">Latest from the Blog</h1>
-                <p class="page-subtitle">Insights, Inspirations, and Kingdom Reflections</p>
+                <h1>My Blog</h1>
+                <p>Thoughts, reflections, and teachings on faith and life.</p>
             </div>
         </section>
 
-        <section class="blog-content">
-            <div class="container">
-                <div class="blog-grid">
-                    <article class="blog-post featured animate-on-scroll">
-                        <div class="post-header">
-                            <span class="post-category">Featured</span>
-                            <h2>Welcome to My Blog!</h2>
-                            <div class="post-meta">
-                                <span class="post-date">September 24, 2025</span>
-                                <span class="post-author">By Faithjesus Oladoye</span>
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <p>Welcome to my blog! This is where I share my thoughts, insights, and spiritual reflections. Through these posts, I hope to inspire, encourage, and share the Kingdom message with you.</p>
-                            <p>Each post is written with prayer and careful consideration, aimed at bringing you closer to God's truth and helping you grow in your spiritual journey.</p>
-                        </div>
-                        <div class="post-footer">
-                            <a href="#" class="read-more">Read Full Post →</a>
-                        </div>
-                    </article>
+        <div class="container blog-layout">
+            <div class="blog-main">
+                <article class="featured-post content-section">
+                    <h2>Featured Post: The Power of Forgiveness</h2>
+                    <img src="https://via.placeholder.com/800x400" alt="Blog post image" class="post-image">
+                    <p class="post-meta">Posted on <time datetime="2024-09-24">September 24, 2024</time> in <a href="#">Faith</a></p>
+                    <p>Forgiveness is one of the most challenging yet liberating commands in scripture. It is not merely an emotional exercise but a decisive act of the will, empowered by God's grace. In this post, we explore the biblical foundations of forgiveness and its transformative power in our daily lives...</p>
+                    <a href="#" class="read-more">Continue Reading &raquo;</a>
+                </article>
 
-                    <article class="blog-post animate-on-scroll">
-                        <div class="post-header">
-                            <span class="post-category">Inspiration</span>
-                            <h3>Finding Purpose in God's Plan</h3>
-                            <div class="post-meta">
-                                <span class="post-date">September 20, 2025</span>
-                                <span class="post-author">By Faithjesus Oladoye</span>
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <p>Discovering your purpose is one of life's greatest journeys. In this post, I explore how God's plan unfolds in our lives and how we can align ourselves with His will.</p>
-                        </div>
-                        <div class="post-footer">
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
-
-                    <article class="blog-post animate-on-scroll">
-                        <div class="post-header">
-                            <span class="post-category">Teaching</span>
-                            <h3>The Power of Prayer in Daily Life</h3>
-                            <div class="post-meta">
-                                <span class="post-date">September 15, 2025</span>
-                                <span class="post-author">By Faithjesus Oladoye</span>
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <p>Prayer is not just a ritual—it's a powerful connection with the Divine. Learn how to integrate meaningful prayer into your everyday routine.</p>
-                        </div>
-                        <div class="post-footer">
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
-
-                    <article class="blog-post animate-on-scroll">
-                        <div class="post-header">
-                            <span class="post-category">Ministry</span>
-                            <h3>Building Community Through Faith</h3>
-                            <div class="post-meta">
-                                <span class="post-date">September 10, 2025</span>
-                                <span class="post-author">By Faithjesus Oladoye</span>
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <p>Community is at the heart of Christian faith. Discover how we can build stronger, more supportive faith communities in our modern world.</p>
-                        </div>
-                        <div class="post-footer">
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="blog-sidebar">
-                    <div class="sidebar-widget">
-                        <h3>Categories</h3>
-                        <ul class="category-list">
-                            <li><a href="#">Inspiration</a> <span>(5)</span></li>
-                            <li><a href="#">Teaching</a> <span>(8)</span></li>
-                            <li><a href="#">Ministry</a> <span>(3)</span></li>
-                            <li><a href="#">Personal</a> <span>(2)</span></li>
-                        </ul>
+                <section id="recent-posts" class="content-section">
+                    <h2 class="section-title">Recent Articles</h2>
+                    <div class="post-list">
+                        <article class="post-item">
+                            <h3><a href="#">Finding Purpose in a World of Distractions</a></h3>
+                            <p class="post-meta">Posted on <time datetime="2024-09-20">September 20, 2024</time></p>
+                            <p>Discover three practical steps to refocus your heart and mind on what truly matters...</p>
+                        </article>
+                        <article class="post-item">
+                            <h3><a href="#">The Art of Prayerful Living</a></h3>
+                            <p class="post-meta">Posted on <time datetime="2024-09-15">September 15, 2024</time></p>
+                            <p>Learn how to integrate conversation with God into every moment of your day...</p>
+                        </article>
+                        <article class="post-item">
+                            <h3><a href="#">Leadership Lessons from Nehemiah</a></h3>
+                            <p class="post-meta">Posted on <time datetime="2024-09-10">September 10, 2024</time></p>
+                            <p>Explore the timeless principles of leadership demonstrated by one of the Bible's greatest builders...</p>
+                        </article>
                     </div>
-
-                    <div class="sidebar-widget">
-                        <h3>Subscribe to Blog</h3>
-                        <p>Get notified when I publish new posts.</p>
-                        <a href="contact.html" class="button primary">Subscribe</a>
-                    </div>
-                </div>
+                </section>
             </div>
-        </section>
+
+            <aside class="blog-sidebar">
+                <div class="sidebar-widget">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Faith & Theology</a></li>
+                        <li><a href="#">Personal Growth</a></li>
+                        <li><a href="#">Ministry & Leadership</a></li>
+                        <li><a href="#">Devotionals</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-widget">
+                    <h3>Search</h3>
+                    <form action="#" method="get">
+                        <input type="search" placeholder="Search articles...">
+                        <button type="submit">Go</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 Oladoye Author and Kingdom Voice. All Rights Reserved.</p>
+            <p>&copy; 2024 Faithjesus Oladoye. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

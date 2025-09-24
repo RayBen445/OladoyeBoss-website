@@ -1,161 +1,69 @@
-/**
- * Telegram Bot Integration for Contact Form
- * 
- * This script handles sending contact form submissions to a Telegram chat
- * using the Telegram Bot API.
- * 
- * SETUP INSTRUCTIONS:
- * 1. Create a Telegram bot by messaging @BotFather on Telegram
- * 2. Get your bot token from BotFather 
- * 3. Replace YOUR_TELEGRAM_BOT_TOKEN_HERE with your actual bot token
- * 4. Get your chat ID by messaging your bot and visiting:
- *    https://api.telegram.org/botYOUR_BOT_TOKEN/getUpdates
- * 5. Replace YOUR_CHAT_ID_HERE with your actual chat ID
- * 
- * SECURITY NOTES:
- * - In production, store credentials as environment variables
- * - Consider using a backend service instead of client-side API calls
- * - The bot token should be kept secure and not exposed in client code
- */
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
 
-class TelegramContact {
-    constructor() {
-        // CONFIGURATION: Replace these placeholders with your actual values
-        this.botToken = '8113980847:AAELB5KE3IGxJ4BON7wG6h7_Qs1oPy_sOto'; // Get from @BotFather
-        this.chatId = '593933293'; // Your Telegram chat ID
-        
-        // Telegram Bot API endpoint
-        this.apiUrl = `https://api.telegram.org/bot${this.botToken}/sendMessage`;
-        
-        // Validate configuration
-        this._validateConfig();
-    }
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-    /**
-     * Validates that the configuration is properly set up
-     * @private
-     */
-    _validateConfig() {
-        if (this.botToken === 'YOUR_TELEGRAM_BOT_TOKEN_HERE' || 
-            this.chatId === 'YOUR_CHAT_ID_HERE') {
-            console.warn('⚠️ Telegram bot is not configured. Please update telegram-contact.js with your bot token and chat ID.');
-            return false;
-        }
-        return true;
-    }
+            // --- IMPORTANT: Replace with your actual Bot Token and Chat ID ---
+            // These are placeholders and must be configured for the form to work.
+            const BOT_TOKEN = 'YOUR_TELEGRAM_BOT_TOKEN';
+            const CHAT_ID = 'YOUR_TELEGRAM_CHAT_ID';
 
-    /**
-     * Formats the contact form data into a readable message
-     * @param {Object} formData - The form data object
-     * @returns {string} Formatted message
-     */
-    _formatMessage(formData) {
-        const timestamp = new Date().toLocaleString();
-        
-        return `🔔 *New Contact Form Submission*
+            // Show a "sending" message
+            formStatus.textContent = 'Sending...';
+            formStatus.style.color = '#333';
 
-📅 *Date:* ${timestamp}
-👤 *Name:* ${formData.name}
-📧 *Email:* ${formData.email}
-💬 *Message:*
-${formData.message}
+            // Check if placeholder values are still being used
+            if (BOT_TOKEN === 'YOUR_TELEGRAM_BOT_TOKEN' || CHAT_ID === 'YOUR_TELEGRAM_CHAT_ID') {
+                formStatus.textContent = 'Form is not configured. Please see setup instructions.';
+                formStatus.style.color = 'red';
+                console.error('Telegram Bot Token or Chat ID is not configured in telegram-contact.js');
+                return;
+            }
 
----
-Sent from: Oladoye Author Website`;
-    }
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-    /**
-     * Sends a message to Telegram using the Bot API
-     * @param {Object} formData - The contact form data
-     * @returns {Promise<Object>} API response
-     */
-    async sendMessage(formData) {
-        // Check if configuration is valid
-        if (!this._validateConfig()) {
-            throw new Error('Telegram bot configuration is missing. Please check telegram-contact.js file.');
-        }
+            // Format the message for Telegram (using Markdown)
+            const text = `
+New Contact Form Submission
+---------------------------
+*Name:* ${name}
+*Email:* ${email}
+*Message:*
+${message}
+            `;
 
-        const message = this._formatMessage(formData);
-        
-        const payload = {
-            chat_id: this.chatId,
-            text: message,
-            parse_mode: 'Markdown' // Enables formatting like *bold* and _italic_
-        };
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-        try {
-            const response = await fetch(this.apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload)
+            const params = new URLSearchParams({
+                chat_id: CHAT_ID,
+                text: text,
+                parse_mode: 'Markdown'
             });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Telegram API Error: ${errorData.description || response.statusText}`);
+            try {
+                const response = await fetch(`${url}?${params.toString()}`, {
+                    method: 'GET', // Telegram API can use GET for sendMessage
+                });
+
+                const data = await response.json();
+
+                if (data.ok) {
+                    formStatus.textContent = 'Message sent successfully! Thank you.';
+                    formStatus.style.color = 'green';
+                    contactForm.reset();
+                } else {
+                    throw new Error(data.description);
+                }
+            } catch (error) {
+                console.error('Telegram API Error:', error);
+                formStatus.textContent = `An error occurred: ${error.message}. Please try again later.`;
+                formStatus.style.color = 'red';
             }
-
-            const result = await response.json();
-            
-            if (!result.ok) {
-                throw new Error(`Telegram API Error: ${result.description}`);
-            }
-
-            return result;
-        } catch (error) {
-            // Log error for debugging (in production, use proper logging)
-            console.error('Failed to send message to Telegram:', error);
-            throw error;
-        }
+        });
     }
-
-    /**
-     * Handles the contact form submission
-     * @param {Event} event - The form submit event
-     * @param {Function} statusCallback - Callback to update form status
-     */
-    async handleFormSubmission(event, statusCallback) {
-        event.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(event.target);
-        const contactData = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            message: formData.get('message')
-        };
-
-        // Validate form data
-        if (!contactData.name || !contactData.email || !contactData.message) {
-            statusCallback('Please fill in all required fields.', 'error');
-            return;
-        }
-
-        // Show loading state
-        statusCallback('Sending message...', 'loading');
-
-        try {
-            // Send to Telegram
-            await this.sendMessage(contactData);
-            
-            // Show success message
-            statusCallback('✅ Thank you for your message! It has been sent successfully. We will get back to you soon.', 'success');
-            
-            // Reset form
-            event.target.reset();
-            
-        } catch (error) {
-            // Show error message
-            const errorMessage = error.message.includes('configuration') 
-                ? '⚠️ Contact form is not fully configured. Please try again later or contact us directly.'
-                : '❌ Sorry, there was an error sending your message. Please try again or contact us directly at the email address provided.';
-            
-            statusCallback(errorMessage, 'error');
-        }
-    }
-}
-
-// Export for use in other scripts
-window.TelegramContact = TelegramContact;
+});

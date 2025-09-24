@@ -3,106 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oladoye Author and Kingdom Voice - Home</title>
+    <title>Faithjesus Oladoye - Author, Pastor, Content Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <!-- CONFIGURATION UPDATE: Logo path updated - logo file moved from logo/flmgyo.webm to root directory as logo.webm -->
-                    <video class="logo-video" autoplay muted loop playsinline>
-                        <source src="logo.webm" type="video/webm">
-                        <!-- Fallback for browsers that don't support the video -->
-                        <div class="logo-fallback">
-                            <h1>Oladoye Author and Kingdom Voice</h1>
-                        </div>
-                    </video>
-                </div>
-                <div class="site-title">
-                    <h1>Oladoye Author and Kingdom Voice</h1>
-                    <p class="site-tagline rotating-quote" id="rotatingQuote">Faithjesus Oladoye - Author & Pastor</p>
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <video src="logo.webm" class="logo-video" autoplay muted loop playsinline></video>
+                <div class="logo-text">
+                    <h1><a href="index.html">Faithjesus Oladoye</a></h1>
+                    <p class="tagline">"For God so loved the world..."</p>
                 </div>
             </div>
-            <nav>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="books.html">Book Store</a></li>
-                    <li><a href="videos.html">Video Store</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="videos.html">Videos</a></li>
                     <li><a href="chat.html">AI Chat</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <button class="mobile-nav-toggle">Menu</button>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Welcome, I'm Faithjesus Oladoye</h2>
+                <h1 class="typewriter">An Author, Pastor, and Content Creator.</h1>
+                <p>Spreading messages of hope, faith, and purpose.</p>
+                <a href="contact.html" class="cta-button">Get In Touch</a>
+            </div>
+        </section>
+
+        <section id="highlights" class="content-section">
             <div class="container">
-                <div class="hero-content">
-                    <h2 class="hero-title">Welcome to My Kingdom Voice</h2>
-                    <div class="typing-text">
-                        <p class="typewriter">Hello, I'm Faithjesus Oladoye, a content creator, book writer, author, and pastor. Welcome to my platform where I share my writing and my Kingdom Voice.</p>
+                <h2 class="section-title">Explore My World</h2>
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <h3>My Blog</h3>
+                        <p>Insights, devotionals, and articles on faith and life.</p>
+                        <a href="blog.html">Read Now</a>
                     </div>
-                    <div class="hero-buttons">
-                        <a href="about.html" class="button primary">Learn About Me</a>
-                        <a href="books.html" class="button secondary">View My Books</a>
+                    <div class="highlight-card">
+                        <h3>My Books</h3>
+                        <p>Discover my published works and upcoming releases.</p>
+                        <a href="books.html">Visit Store</a>
                     </div>
-                </div>
-                <div class="hero-image">
-                    <div class="image-placeholder">
-                        <p>📚 Author & Pastor</p>
+                    <div class="highlight-card">
+                        <h3>My Videos</h3>
+                        <p>Watch sermons, teachings, and inspirational messages.</p>
+                        <a href="videos.html">Watch Now</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="features">
+        <section id="cta-section" class="content-section">
             <div class="container">
-                <h2 class="section-title">Explore My Platform</h2>
-                <div class="features-grid">
-                    <div class="feature-card animate-on-scroll">
-                        <div class="feature-icon">📖</div>
-                        <h3>Latest Blog Posts</h3>
-                        <p>Discover my thoughts, insights, and spiritual reflections through my regular blog posts.</p>
-                        <a href="blog.html" class="feature-link">Read Blog →</a>
-                    </div>
-                    <div class="feature-card animate-on-scroll">
-                        <div class="feature-icon">📚</div>
-                        <h3>Published Books</h3>
-                        <p>Explore my collection of books that inspire, educate, and share God's message.</p>
-                        <a href="books.html" class="feature-link">Browse Books →</a>
-                    </div>
-                    <div class="feature-card animate-on-scroll">
-                        <div class="feature-icon">🎥</div>
-                        <h3>Video Content</h3>
-                        <p>Watch my video sermons, teachings, and inspirational content.</p>
-                        <a href="videos.html" class="feature-link">Watch Videos →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta">
-            <div class="container">
-                <div class="cta-content">
-                    <h2>Ready to Connect?</h2>
-                    <p>I'd love to hear from you. Whether you have questions, feedback, or just want to say hello, don't hesitate to reach out.</p>
-                    <a href="contact.html" class="button primary">Get In Touch</a>
-                </div>
+                <h2>Have a Question or a Prayer Request?</h2>
+                <p>I'm here to help and support you on your journey.</p>
+                <a href="contact.html" class="cta-button">Contact Me</a>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 Oladoye Author and Kingdom Voice. All Rights Reserved.</p>
+            <p>&copy; 2024 Faithjesus Oladoye. All Rights Reserved.</p>
+            <p>Designed with love and purpose.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

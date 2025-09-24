@@ -1,289 +1,70 @@
-# Oladoye Author and Kingdom Voice Website
+# Personal Website for Faithjesus Oladoye
 
-# Faithjesus Oladoye - Author & Kingdom Voice Website
-
-A personal website for Faithjesus Oladoye featuring blog posts, book store, video store, AI chat functionality, and contact functionality with Telegram bot integration.
+This repository contains the source code for the personal website of Faithjesus Oladoye, an author, content creator, and pastor.
 
 ## Features
 
-- **Responsive Design**: Mobile-first, fully responsive layout
-- **AI Chat Assistant**: Powered by Google AI (Gemini) for spiritual guidance and biblical questions
-- **Telegram Integration**: Contact form submissions sent directly to Telegram
-- **Interactive Elements**: Smooth animations and transitions
-- **SEO Optimized**: Semantic HTML structure with proper meta tags
-- **Video Logo Support**: Animated video logo with fallback
+*   **Modern & Responsive Design:** A visually appealing and mobile-friendly layout.
+*   **Interactive Elements:** Engaging features like on-scroll animations and a typewriter effect.
+*   **Blog & Book Showcase:** Sections dedicated to written content and published works.
+*   **Video Gallery:** An organized collection of video content with filtering capabilities.
+*   **AI-Powered Chat:** An integrated chat assistant powered by Google Gemini Pro.
+*   **Telegram Contact Form:** A contact form that sends messages directly to a Telegram chat.
 
-## AI Chat Setup
-
-The AI Chat feature requires proper backend configuration to securely handle API keys.
-
-### Production Deployment (Recommended)
-
-#### For Vercel:
-1. Get your Google AI API key from [https://ai.google.dev/](https://ai.google.dev/)
-2. In your Vercel project settings:
-   - Go to Environment Variables
-   - Add `GOOGLE_AI_API_KEY` with your actual API key
-3. Deploy your project - the `/api/chat` endpoint will automatically work
-
-#### For Other Platforms:
-1. Set the environment variable `GOOGLE_AI_API_KEY` in your deployment platform
-2. Ensure the `/api/chat` endpoint is properly configured (see `api/chat.js`)
-
-### Local Development (Optional)
-
-For local testing only:
-1. Copy `ai-config.example.js` to `ai-config.js`
-2. Replace the placeholder with your actual API key
-3. Add this script tag to `chat.html` before `ai-chat.js`:
-   ```html
-   <script src="ai-config.js"></script>
-   ```
-
-**⚠️ Warning**: Never commit `ai-config.js` to version control! It's already included in `.gitignore`.
-
-### Testing the AI Chat
-
-1. Navigate to the AI Chat page
-2. If configured correctly, the warning banner should disappear
-3. Type a message and test the functionality
-4. Check browser console for any error messages
-
-## File Structure
+## Project Structure
 
 ```
-├── index.html              # Main website HTML
-├── about.html              # About page
-├── blog.html               # Blog page
-├── books.html              # Books showcase
-├── videos.html             # Video library
-├── chat.html               # AI Chat page
-├── contact.html            # Contact form
-├── style.css               # Main stylesheet
-├── script.js               # Main JavaScript
-├── ai-chat.js              # AI Chat functionality
-├── telegram-contact.js     # Telegram bot integration
-├── api/
-│   ├── chat.js            # Backend API for AI chat (Vercel function)
-│   └── README.md          # Backend configuration guide
-├── ai-config.example.js   # Example config for development
-├── package.json           # Project configuration
-├── logo.webm              # Video logo
-└── README.md              # This file
-```
-
-### Multi-Page Architecture
-- **Home**: Welcome introduction with hero section and overview
-- **About**: Personal story, mission, credentials, and statistics
-- **Blog**: Organized blog posts with categories and metadata
-- **Books**: Professional book showcase with detailed information
-- **Videos**: Video library with filtering and categorization
-- **AI Chat**: Interactive AI assistant for spiritual guidance
-- **Contact**: Enhanced contact form with Telegram integration
-
-### Logo Integration
-The website includes a video logo in the header that displays across all pages:
-
-#### Adding Your Logo
-1. **Video Format**: The logo should be in `.webm` format for best compatibility
-2. **File Name**: Save your logo video as `logo.webm` in the root directory
-3. **Recommended Specifications**:
-   - Format: WebM (VP8/VP9 codec)
-   - Duration: 2-5 seconds (loops automatically)
-   - Resolution: 200x200px or square aspect ratio
-   - Size: Keep under 1MB for fast loading
-   - Audio: Muted (audio is disabled by default)
-
-#### Current Logo Setup
-- **File**: `logo.webm` (place your logo file here)
-- **Source URL**: https://files.catbox.moe/flmgyo.webm (your provided logo)
-- **Display**: 60px circle in header with auto-play, loop, and muted
-- **Fallback**: Text-based logo if video fails to load
-
-To update the logo:
-1. Download your logo from the provided URL
-2. Convert to WebM format if needed
-3. Save as `logo.webm` in the website root directory
-4. Deploy to your hosting service
-
-### AI Chat Integration
-- **Google AI (Gemini) Integration**: Professional AI chat system for spiritual guidance
-- **Setup**: Set `GOOGLE_AI_API_KEY` environment variable in your deployment platform
-- **Features**: Conversation history, suggested questions, responsive design
-
-### Telegram Bot Integration
-- **Bot Token**: `8113980847:AAELB5KE3IGxJ4BON7wG6h7_Qs1oPy_sOto`
-- **Chat ID**: `593933293`
-- **Functionality**: Contact form submissions are automatically sent to Telegram
-
-## Deployment Instructions
-
-### For Vercel (Recommended)
-1. Upload all files including `logo.webm` to your repository
-2. Connect repository to Vercel
-3. Set environment variable: `GOOGLE_AI_API_KEY` with your Google AI API key
-4. Deploy
-
-### For Other Hosting Platforms
-1. Upload all files to your web server
-2. Ensure `logo.webm` is in the root directory alongside `index.html`
-3. Configure environment variables for AI chat functionality
-
-## Technical Requirements
-- Modern web browser with HTML5 video support
-- WebM video codec support
-- JavaScript enabled for interactive features
-
-## File Structure
-```
-├── index.html          # Homepage
-├── about.html          # About page
+/
+├── index.html          # Home page
+├── about.html          # About Me page
 ├── blog.html           # Blog page
-├── books.html          # Books showcase
-├── videos.html         # Video library
+├── books.html          # Book Store page
+├── videos.html         # Video Store page
 ├── chat.html           # AI Chat page
-├── contact.html        # Contact form
+├── contact.html        # Contact page
 ├── style.css           # Main stylesheet
-├── script.js           # Main JavaScript
-├── ai-chat.js          # AI Chat functionality
-├── telegram-contact.js # Telegram bot integration
-├── logo.webm          # Video logo (add your file here)
-└── README.md          # This file
+├── script.js           # Core JavaScript for the site
+├── ai-chat.js          # Frontend logic for the AI chat
+├── telegram-contact.js # Logic for the Telegram contact form
+├── api/
+│   └── chat.js         # Vercel serverless function for the AI chat
+├── assets/             # Directory for images, videos, etc.
+├── package.json        # Project metadata and dependencies
+├── .gitignore          # Files to be ignored by Git
+├── README.md           # This file
+└── DEPLOYMENT.md       # Deployment instructions
 ```
 
-## Logo Troubleshooting
+## Setup Instructions
 
-If the logo doesn't appear:
-1. **Check file name**: Ensure it's exactly `logo.webm`
-2. **Check file format**: Must be WebM format
-3. **Check file size**: Large files may not load quickly
-4. **Check browser support**: Ensure WebM is supported
-5. **Fallback**: Text logo will display if video fails
+### Telegram Contact Form
 
-The logo integration includes automatic fallback to text-based branding if the video fails to load, ensuring the website always looks professional.
+1.  **Create a Telegram Bot:**
+    *   Open Telegram and search for the "BotFather" user.
+    *   Start a chat and send the `/newbot` command.
+    *   Follow the prompts to name your bot and choose a username.
+    *   BotFather will provide you with a **Bot Token**. Keep this safe.
 
-## Customization
+2.  **Get your Chat ID:**
+    *   Search for your newly created bot on Telegram and send it a message.
+    *   Open your web browser and go to `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates` (replace `<YOUR_BOT_TOKEN>` with your token).
+    *   Look for the `"chat":{"id":...}` field in the JSON response. This is your **Chat ID**.
 
-### Logo Styling
-The logo appearance can be customized in `style.css`:
-- Size: Modify `.logo-container` width/height
-- Position: Adjust `.header-content` layout
-- Border: Change `.logo-container` border properties
-- Animation: Add CSS animations to `.logo-video`
+3.  **Update the Script:**
+    *   Open `telegram-contact.js`.
+    *   Replace the placeholder values for `BOT_TOKEN` and `CHAT_ID` with your actual token and chat ID.
 
-### Colors & Branding
-The website uses a sky blue to dark blue gradient theme that can be customized via CSS custom properties in `style.css`.
+### AI Chat (Vercel Deployment)
 
-For support or questions, contact Faithjesus Oladoye through the website's contact form.
+1.  **Get a Google AI API Key:**
+    *   Go to the [Google AI Studio](https://aistudio.google.com/) and create a new API key.
 
-## Features
+2.  **Deploy to Vercel:**
+    *   Create a new project on Vercel and link it to your Git repository.
+    *   In the project settings, go to "Environment Variables".
+    *   Add a new variable named `GOOGLE_AI_API_KEY` and paste your Google AI API key as the value.
 
-- **Blog Section**: Latest posts and updates
-- **About Section**: Personal introduction
-- **Book Store**: Showcase of published books
-- **Video Store**: Embedded video content
-- **Contact Form**: Direct messaging via Telegram bot integration
+3.  **Redeploy:**
+    *   Trigger a new deployment on Vercel to apply the environment variable.
 
-## Telegram Bot Setup
-
-The contact form is integrated with a Telegram bot to automatically forward messages to your Telegram chat. Follow these steps to configure it:
-
-### Step 1: Create a Telegram Bot
-
-1. Open Telegram and search for `@BotFather`
-2. Start a conversation with BotFather
-3. Send `/newbot` command
-4. Follow the prompts to choose a name and username for your bot
-5. BotFather will provide you with a **bot token** - save this securely
-
-### Step 2: Get Your Chat ID
-
-1. Start a conversation with your newly created bot
-2. Send any message to the bot
-3. Open this URL in your browser (replace `YOUR_BOT_TOKEN` with your actual bot token):
-   ```
-   https://api.telegram.org/botYOUR_BOT_TOKEN/getUpdates
-   ```
-4. Look for the `chat` object in the response and note the `id` value - this is your **chat ID**
-
-### Step 3: Configure the Website
-
-1. Open `telegram-contact.js` file
-2. Replace `YOUR_TELEGRAM_BOT_TOKEN_HERE` with your actual bot token
-3. Replace `YOUR_CHAT_ID_HERE` with your actual chat ID
-
-Example:
-```javascript
-this.botToken = '1234567890:ABCdefGHIjklMNOpqrSTUvwxYZ123456789';
-this.chatId = '1234567890';
-```
-
-### Step 4: Test the Integration
-
-1. Open your website
-2. Navigate to the Contact section
-3. Fill out and submit the contact form
-4. Check your Telegram chat for the message
-
-## Message Format
-
-When someone submits the contact form, you'll receive a formatted message in Telegram:
-
-```
-🔔 New Contact Form Submission
-
-📅 Date: [timestamp]
-👤 Name: [name]
-📧 Email: [email]
-💬 Message:
-[message content]
-
----
-Sent from: Oladoye Author Website
-```
-
-## Error Handling
-
-The system includes comprehensive error handling:
-
-- **Configuration errors**: User-friendly messages when bot is not configured
-- **Network errors**: Graceful handling of API failures
-- **Validation errors**: Client-side form validation
-- **Success feedback**: Clear confirmation when messages are sent
-
-## Security Notes
-
-⚠️ **Important Security Considerations:**
-
-- The current implementation stores bot credentials in client-side JavaScript
-- For production use, consider implementing a backend service to handle Telegram API calls
-- Store sensitive credentials as environment variables
-- Regularly rotate your bot token for security
-
-## File Structure
-
-```
-├── index.html              # Main website HTML
-├── style.css              # Website styling
-├── script.js              # Main website JavaScript
-├── telegram-contact.js    # Telegram bot integration
-└── README.md             # This file
-```
-
-## Customization
-
-### Styling
-The contact form status messages use CSS classes:
-- `.status-success` - Green styling for success messages
-- `.status-error` - Red styling for error messages  
-- `.status-loading` - Yellow styling for loading states
-
-### Message Format
-To customize the Telegram message format, edit the `_formatMessage()` method in `telegram-contact.js`.
-
-## Support
-
-For issues or questions:
-- Email: oladoyejoel3@gmail.com
-- Check browser console for debugging information
-- Ensure your bot token and chat ID are correctly configured
+Your AI Chat feature should now be live and functional.

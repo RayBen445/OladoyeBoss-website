@@ -1,22 +1,20 @@
 {
-  "name": "oladoye-author-website",
+  "name": "faithjesus-oladoye-website",
   "version": "1.0.0",
-  "description": "Personal website for Faithjesus Oladoye featuring AI chat functionality",
-  "main": "index.html",
+  "description": "Personal website for Faithjesus Oladoye",
+  "main": "script.js",
+  "dependencies": {
+    "@google/generative-ai": "^0.1.0"
+  },
   "scripts": {
-    "dev": "python3 -m http.server 8000",
-    "start": "python3 -m http.server 8000"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "faithjesus",
+    "oladoye",
     "author",
-    "christian",
-    "ministry",
-    "ai-chat",
-    "gemini"
+    "pastor"
   ],
   "author": "Faithjesus Oladoye",
-  "license": "MIT",
-  "engines": {
-    "node": ">=14.0.0"
-  }
+  "license": "ISC"
 }

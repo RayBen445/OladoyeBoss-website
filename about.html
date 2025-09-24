@@ -3,103 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Oladoye Author and Kingdom Voice</title>
+    <title>About Me - Faithjesus Oladoye</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <video class="logo-video" autoplay muted loop playsinline>
-                        <source src="logo.webm" type="video/webm">
-                        <!-- Fallback for browsers that don't support the video -->
-                        <div class="logo-fallback">
-                            <h1>Oladoye Author and Kingdom Voice</h1>
-                        </div>
-                    </video>
-                </div>
-                <div class="site-title">
-                    <h1>Oladoye Author and Kingdom Voice</h1>
-                    <p class="site-tagline rotating-quote" id="rotatingQuote">Faithjesus Oladoye - Author & Pastor</p>
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <video src="logo.webm" class="logo-video" autoplay muted loop playsinline></video>
+                <div class="logo-text">
+                    <h1><a href="index.html">Faithjesus Oladoye</a></h1>
+                    <p class="tagline">"The Lord is my shepherd..."</p>
                 </div>
             </div>
-            <nav>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About Me</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="books.html">Book Store</a></li>
-                    <li><a href="videos.html">Video Store</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="videos.html">Videos</a></li>
                     <li><a href="chat.html">AI Chat</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <button class="mobile-nav-toggle">Menu</button>
         </div>
     </header>
 
     <main>
-        <section class="page-hero">
+        <section class="page-header">
             <div class="container">
-                <h1 class="page-title">About Faithjesus Oladoye</h1>
-                <p class="page-subtitle">Content Creator, Author, and Pastor</p>
+                <h1>About Me</h1>
+                <p>My journey, my mission, and my services.</p>
             </div>
         </section>
 
-        <section class="about-content">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-text animate-on-scroll">
-                        <h2>My Journey</h2>
-                        <p>Hello, I'm Faithjesus Oladoye, a passionate content creator, book writer, author, and pastor. Welcome to my platform where I share my writing and my "Kingdom Voice."</p>
-                        
-                        <p>My journey began with a calling to share God's word and inspire others through written and spoken ministry. Through my books, blog posts, and video content, I aim to touch hearts and transform lives.</p>
-                        
-                        <h3>My Mission</h3>
-                        <p>To spread the Kingdom message through authentic storytelling, biblical teachings, and inspirational content that encourages spiritual growth and personal development.</p>
-                        
-                        <h3>What I Do</h3>
-                        <ul>
-                            <li>Write inspirational books and literature</li>
-                            <li>Create engaging blog content</li>
-                            <li>Produce educational video content</li>
-                            <li>Serve as a pastor and spiritual guide</li>
-                            <li>Speak at events and conferences</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="about-sidebar animate-on-scroll">
-                        <div class="author-card">
-                            <div class="author-image">
-                                <div class="image-placeholder">
-                                    <p>👨‍💼 Faithjesus Oladoye</p>
-                                </div>
-                            </div>
-                            <h3>Faithjesus Oladoye</h3>
-                            <p class="author-title">Author & Pastor</p>
-                            
-                            <div class="stats">
-                                <div class="stat">
-                                    <h4>5+</h4>
-                                    <p>Years of Ministry</p>
-                                </div>
-                                <div class="stat">
-                                    <h4>2+</h4>
-                                    <p>Published Books</p>
-                                </div>
-                                <div class="stat">
-                                    <h4>100+</h4>
-                                    <p>Blog Posts</p>
-                                </div>
-                            </div>
+        <section id="author-journey" class="content-section">
+            <div class="container about-flex">
+                <div class="about-text">
+                    <h2>My Story</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h2>My Mission</h2>
+                    <p>My mission is to inspire, uplift, and guide individuals towards a life of purpose and faith. Through my writing, speaking, and digital content, I aim to share the timeless truths of the Gospel in a way that is relatable and transformative for modern audiences.</p>
+                    <h2>Services I Offer</h2>
+                    <ul>
+                        <li>Pastoral Counseling & Mentorship</li>
+                        <li>Public Speaking & Seminars</li>
+                        <li>Content Creation & Collaboration</li>
+                        <li>Writing Workshops</li>
+                    </ul>
+                </div>
+                <div class="personal-card">
+                    <img src="https://via.placeholder.com/300" alt="Faithjesus Oladoye" class="profile-pic">
+                    <h3>Faithjesus Oladoye</h3>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years of Ministry</span>
                         </div>
-                        
-                        <div class="contact-card">
-                            <h3>Get In Touch</h3>
-                            <p>Ready to connect? I'd love to hear from you.</p>
-                            <a href="contact.html" class="button primary">Contact Me</a>
+                        <div class="stat-item">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Published Books</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Blog Posts</span>
                         </div>
                     </div>
                 </div>
@@ -107,10 +78,12 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 Oladoye Author and Kingdom Voice. All Rights Reserved.</p>
+            <p>&copy; 2024 Faithjesus Oladoye. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
