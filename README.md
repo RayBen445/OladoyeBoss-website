@@ -1,6 +1,114 @@
 # Oladoye Author and Kingdom Voice Website
 
-A personal website for Faithjesus Oladoye featuring blog posts, book store, video store, and contact functionality with Telegram bot integration.
+# Faithjesus Oladoye - Author & Kingdom Voice Website
+
+A personal website for Faithjesus Oladoye featuring blog posts, book store, video store, AI chat functionality, and contact functionality with Telegram bot integration.
+
+## Features
+
+### Multi-Page Architecture
+- **Home**: Welcome introduction with hero section and overview
+- **About**: Personal story, mission, credentials, and statistics
+- **Blog**: Organized blog posts with categories and metadata
+- **Books**: Professional book showcase with detailed information
+- **Videos**: Video library with filtering and categorization
+- **AI Chat**: Interactive AI assistant for spiritual guidance
+- **Contact**: Enhanced contact form with Telegram integration
+
+### Logo Integration
+The website includes a video logo in the header that displays across all pages:
+
+#### Adding Your Logo
+1. **Video Format**: The logo should be in `.webm` format for best compatibility
+2. **File Name**: Save your logo video as `logo.webm` in the root directory
+3. **Recommended Specifications**:
+   - Format: WebM (VP8/VP9 codec)
+   - Duration: 2-5 seconds (loops automatically)
+   - Resolution: 200x200px or square aspect ratio
+   - Size: Keep under 1MB for fast loading
+   - Audio: Muted (audio is disabled by default)
+
+#### Current Logo Setup
+- **File**: `logo.webm` (place your logo file here)
+- **Source URL**: https://files.catbox.moe/flmgyo.webm (your provided logo)
+- **Display**: 60px circle in header with auto-play, loop, and muted
+- **Fallback**: Text-based logo if video fails to load
+
+To update the logo:
+1. Download your logo from the provided URL
+2. Convert to WebM format if needed
+3. Save as `logo.webm` in the website root directory
+4. Deploy to your hosting service
+
+### AI Chat Integration
+- **Google AI (Gemini) Integration**: Professional AI chat system for spiritual guidance
+- **Setup**: Set `GOOGLE_AI_API_KEY` environment variable in your deployment platform
+- **Features**: Conversation history, suggested questions, responsive design
+
+### Telegram Bot Integration
+- **Bot Token**: `8113980847:AAELB5KE3IGxJ4BON7wG6h7_Qs1oPy_sOto`
+- **Chat ID**: `593933293`
+- **Functionality**: Contact form submissions are automatically sent to Telegram
+
+## Deployment Instructions
+
+### For Vercel (Recommended)
+1. Upload all files including `logo.webm` to your repository
+2. Connect repository to Vercel
+3. Set environment variable: `GOOGLE_AI_API_KEY` with your Google AI API key
+4. Deploy
+
+### For Other Hosting Platforms
+1. Upload all files to your web server
+2. Ensure `logo.webm` is in the root directory alongside `index.html`
+3. Configure environment variables for AI chat functionality
+
+## Technical Requirements
+- Modern web browser with HTML5 video support
+- WebM video codec support
+- JavaScript enabled for interactive features
+
+## File Structure
+```
+├── index.html          # Homepage
+├── about.html          # About page
+├── blog.html           # Blog page
+├── books.html          # Books showcase
+├── videos.html         # Video library
+├── chat.html           # AI Chat page
+├── contact.html        # Contact form
+├── style.css           # Main stylesheet
+├── script.js           # Main JavaScript
+├── ai-chat.js          # AI Chat functionality
+├── telegram-contact.js # Telegram bot integration
+├── logo.webm          # Video logo (add your file here)
+└── README.md          # This file
+```
+
+## Logo Troubleshooting
+
+If the logo doesn't appear:
+1. **Check file name**: Ensure it's exactly `logo.webm`
+2. **Check file format**: Must be WebM format
+3. **Check file size**: Large files may not load quickly
+4. **Check browser support**: Ensure WebM is supported
+5. **Fallback**: Text logo will display if video fails
+
+The logo integration includes automatic fallback to text-based branding if the video fails to load, ensuring the website always looks professional.
+
+## Customization
+
+### Logo Styling
+The logo appearance can be customized in `style.css`:
+- Size: Modify `.logo-container` width/height
+- Position: Adjust `.header-content` layout
+- Border: Change `.logo-container` border properties
+- Animation: Add CSS animations to `.logo-video`
+
+### Colors & Branding
+The website uses a sky blue to dark blue gradient theme that can be customized via CSS custom properties in `style.css`.
+
+For support or questions, contact Faithjesus Oladoye through the website's contact form.
 
 ## Features
 
