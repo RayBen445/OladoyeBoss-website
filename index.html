@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oladoye Author and Kingdom Voice</title>
+    <title>Oladoye Author and Kingdom Voice - Home</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
@@ -11,92 +11,89 @@
 <body>
     <header>
         <div class="container">
-            <h1>Oladoye Author and Kingdom Voice</h1>
+            <div class="header-content">
+                <div class="logo-container">
+                    <video class="logo-video" autoplay muted loop playsinline>
+                        <source src="logo.webm" type="video/webm">
+                        <!-- Fallback for browsers that don't support the video -->
+                        <div class="logo-fallback">
+                            <h1>Oladoye Author and Kingdom Voice</h1>
+                        </div>
+                    </video>
+                </div>
+                <div class="site-title">
+                    <h1>Oladoye Author and Kingdom Voice</h1>
+                    <p class="site-tagline">Faithjesus Oladoye - Author & Pastor</p>
+                </div>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#book-store">Book Store</a></li>
-                    <li><a href="#video-store">Video Store</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="books.html">Book Store</a></li>
+                    <li><a href="videos.html">Video Store</a></li>
+                    <li><a href="chat.html">AI Chat</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="blog" class="section">
+        <section class="hero">
             <div class="container">
-                <h2>Latest from the Blog</h2>
-                <div class="blog-post">
-                    <h3>Welcome to My Blog!</h3>
-                    <p class="post-date">September 24, 2025</p>
-                    <p>This is your first blog post. You can edit this text to share your thoughts, insights, and latest news with your audience.</p>
+                <div class="hero-content">
+                    <h2 class="hero-title">Welcome to My Kingdom Voice</h2>
+                    <div class="typing-text">
+                        <p class="typewriter">I am Faithjesus Oladoye, a passionate content creator, author, and pastor dedicated to sharing God's word and inspiring others through my writing and ministry.</p>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="about.html" class="button primary">Learn About Me</a>
+                        <a href="books.html" class="button secondary">View My Books</a>
+                    </div>
                 </div>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <p>📚 Author & Pastor</p>
+                    </div>
                 </div>
-        </section>
-
-        <section id="about" class="section">
-            <div class="container">
-                <h2>About Me</h2>
-                <p>Hello, I'm Heritage Oladoye, a content creator, book writer, author, and pastor. Welcome to my platform where I share my writing and my "Kingdom Voice."</p>
             </div>
         </section>
 
-        <section id="book-store" class="section">
+        <section class="features">
             <div class="container">
-                <h2>Book Store</h2>
-                <div class="item-grid">
-                    <div class="item">
-                        <img src="https://via.placeholder.com/200x300.png?text=Your+Book+Cover" alt="Book 1">
-                        <h3>Book Title 1</h3>
-                        <p>A brief description of your first book. Tell people what it's about and why they should read it.</p>
-                        <a href="#" class="button">Buy Now</a>
+                <h2 class="section-title">Explore My Platform</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">📖</div>
+                        <h3>Latest Blog Posts</h3>
+                        <p>Discover my thoughts, insights, and spiritual reflections through my regular blog posts.</p>
+                        <a href="blog.html" class="feature-link">Read Blog →</a>
                     </div>
-                    <div class="item">
-                        <img src="https://via.placeholder.com/200x300.png?text=Your+Book+Cover" alt="Book 2">
-                        <h3>Book Title 2</h3>
-                        <p>A brief description of your second book. Tell people what it's about and why they should read it.</p>
-                        <a href="#" class="button">Buy Now</a>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">📚</div>
+                        <h3>Published Books</h3>
+                        <p>Explore my collection of books that inspire, educate, and share God's message.</p>
+                        <a href="books.html" class="feature-link">Browse Books →</a>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">🎥</div>
+                        <h3>Video Content</h3>
+                        <p>Watch my video sermons, teachings, and inspirational content.</p>
+                        <a href="videos.html" class="feature-link">Watch Videos →</a>
                     </div>
                 </div>
-                <p class="instruction">To add your own book covers, replace the "https://via.placeholder.com..." links with the URLs of your images.</p>
             </div>
         </section>
 
-        <section id="video-store" class="section">
+        <section class="cta">
             <div class="container">
-                <h2>Video Store</h2>
-                <div class="item-grid">
-                    <div class="item">
-                        <h3>Video Title 1</h3>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
-                        <p>A short description of your video content.</p>
-                    </div>
-                    <div class="item">
-                        <h3>Video Title 2</h3>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
-                        <p>A short description of your second video.</p>
-                    </div>
+                <div class="cta-content">
+                    <h2>Ready to Connect?</h2>
+                    <p>I'd love to hear from you. Whether you have questions, feedback, or just want to say hello, don't hesitate to reach out.</p>
+                    <a href="contact.html" class="button primary">Get In Touch</a>
                 </div>
-                <p class="instruction">To add your own videos, replace "YOUR_VIDEO_ID_HERE" with the actual ID from your YouTube video's URL.</p>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>Contact Me</h2>
-                <p>You can reach me at <a href="mailto:oladoyejoel3@gmail.com">oladoyejoel3@gmail.com</a></p>
-                <form id="contactForm">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                    <button type="submit" class="button">Send Message</button>
-                    <p id="formStatus"></p>
-                </form>
             </div>
         </section>
     </main>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Store - Oladoye Author and Kingdom Voice</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <video class="logo-video" autoplay muted loop playsinline>
+                        <source src="logo.webm" type="video/webm">
+                        <!-- Fallback for browsers that don't support the video -->
+                        <div class="logo-fallback">
+                            <h1>Oladoye Author and Kingdom Voice</h1>
+                        </div>
+                    </video>
+                </div>
+                <div class="site-title">
+                    <h1>Oladoye Author and Kingdom Voice</h1>
+                    <p class="site-tagline">Faithjesus Oladoye - Author & Pastor</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="books.html">Book Store</a></li>
+                    <li><a href="videos.html" class="active">Video Store</a></li>
+                    <li><a href="chat.html">AI Chat</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Video Content</h1>
+                <p class="page-subtitle">Sermons, Teachings, and Inspirational Videos</p>
+            </div>
+        </section>
+
+        <section class="videos-content">
+            <div class="container">
+                <div class="video-categories">
+                    <div class="category-filters">
+                        <button class="filter-btn active" data-category="all">All Videos</button>
+                        <button class="filter-btn" data-category="sermons">Sermons</button>
+                        <button class="filter-btn" data-category="teachings">Teachings</button>
+                        <button class="filter-btn" data-category="inspiration">Inspiration</button>
+                    </div>
+                </div>
+
+                <div class="videos-grid">
+                    <div class="video-item featured animate-on-scroll" data-category="sermons">
+                        <div class="video-thumbnail">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+                            <div class="video-badge">Latest Sermon</div>
+                        </div>
+                        <div class="video-details">
+                            <h2>Walking in God's Purpose</h2>
+                            <p class="video-meta">
+                                <span class="video-date">📅 September 22, 2025</span>
+                                <span class="video-duration">⏱️ 45 min</span>
+                                <span class="video-category">🎯 Sermons</span>
+                            </p>
+                            <p class="video-description">
+                                A powerful message about discovering and walking in God's divine purpose for your life. Learn how to align your steps with His will and experience the fullness of His plan.
+                            </p>
+                            <div class="video-stats">
+                                <span>👥 1,234 views</span>
+                                <span>👍 98 likes</span>
+                                <span>💬 23 comments</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item animate-on-scroll" data-category="teachings">
+                        <div class="video-thumbnail">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-details">
+                            <h3>The Power of Prayer</h3>
+                            <p class="video-meta">
+                                <span class="video-date">📅 September 18, 2025</span>
+                                <span class="video-duration">⏱️ 30 min</span>
+                                <span class="video-category">📚 Teachings</span>
+                            </p>
+                            <p class="video-description">
+                                Understanding the transformative power of prayer and how it can change your life and circumstances.
+                            </p>
+                            <div class="video-stats">
+                                <span>👥 856 views</span>
+                                <span>👍 72 likes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item animate-on-scroll" data-category="inspiration">
+                        <div class="video-thumbnail">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-details">
+                            <h3>Overcoming Life's Challenges</h3>
+                            <p class="video-meta">
+                                <span class="video-date">📅 September 15, 2025</span>
+                                <span class="video-duration">⏱️ 25 min</span>
+                                <span class="video-category">✨ Inspiration</span>
+                            </p>
+                            <p class="video-description">
+                                Practical wisdom for overcoming obstacles and maintaining faith during difficult times.
+                            </p>
+                            <div class="video-stats">
+                                <span>👥 642 views</span>
+                                <span>👍 58 likes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item animate-on-scroll" data-category="teachings">
+                        <div class="video-thumbnail">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-details">
+                            <h3>Building Strong Faith</h3>
+                            <p class="video-meta">
+                                <span class="video-date">📅 September 12, 2025</span>
+                                <span class="video-duration">⏱️ 35 min</span>
+                                <span class="video-category">📚 Teachings</span>
+                            </p>
+                            <p class="video-description">
+                                Learn the foundations of building unshakeable faith that stands strong in every season.
+                            </p>
+                            <div class="video-stats">
+                                <span>👥 923 views</span>
+                                <span>👍 89 likes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item animate-on-scroll" data-category="sermons">
+                        <div class="video-thumbnail">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-details">
+                            <h3>The Heart of Worship</h3>
+                            <p class="video-meta">
+                                <span class="video-date">📅 September 8, 2025</span>
+                                <span class="video-duration">⏱️ 40 min</span>
+                                <span class="video-category">🎯 Sermons</span>
+                            </p>
+                            <p class="video-description">
+                                Discovering what true worship means and how to cultivate a heart that honors God.
+                            </p>
+                            <div class="video-stats">
+                                <span>👥 1,156 views</span>
+                                <span>👍 103 likes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-item animate-on-scroll" data-category="inspiration">
+                        <div class="video-thumbnail">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-details">
+                            <h3>Finding Hope in Dark Times</h3>
+                            <p class="video-meta">
+                                <span class="video-date">📅 September 5, 2025</span>
+                                <span class="video-duration">⏱️ 28 min</span>
+                                <span class="video-category">✨ Inspiration</span>
+                            </p>
+                            <p class="video-description">
+                                A message of hope and encouragement for those going through difficult seasons.
+                            </p>
+                            <div class="video-stats">
+                                <span>👥 789 views</span>
+                                <span>👍 67 likes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Subscribe</h3>
+                        <p>Get notified when new videos are uploaded.</p>
+                        <a href="contact.html" class="button primary">Subscribe</a>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3>Popular Videos</h3>
+                        <div class="popular-videos">
+                            <div class="popular-video">
+                                <div class="popular-thumbnail">🎥</div>
+                                <div class="popular-details">
+                                    <h4>Walking in God's Purpose</h4>
+                                    <span>1,234 views</span>
+                                </div>
+                            </div>
+                            <div class="popular-video">
+                                <div class="popular-thumbnail">🎥</div>
+                                <div class="popular-details">
+                                    <h4>The Heart of Worship</h4>
+                                    <span>1,156 views</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3>Request a Topic</h3>
+                        <p>Have a topic you'd like me to cover?</p>
+                        <a href="contact.html" class="button secondary">Send Request</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Oladoye Author and Kingdom Voice. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
