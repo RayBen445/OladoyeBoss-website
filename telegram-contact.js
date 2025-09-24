@@ -21,8 +21,8 @@
 class TelegramContact {
     constructor() {
         // CONFIGURATION: Replace these placeholders with your actual values
-        this.botToken = 'YOUR_TELEGRAM_BOT_TOKEN_HERE'; // Get from @BotFather
-        this.chatId = 'YOUR_CHAT_ID_HERE'; // Your Telegram chat ID
+        this.botToken = '8113980847:AAELB5KE3IGxJ4BON7wG6h7_Qs1oPy_sOto'; // Get from @BotFather
+        this.chatId = '593933293'; // Your Telegram chat ID
         
         // Telegram Bot API endpoint
         this.apiUrl = `https://api.telegram.org/bot${this.botToken}/sendMessage`;
