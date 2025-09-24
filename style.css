@@ -4,11 +4,13 @@ body {
     line-height: 1.6;
     margin: 0;
     color: #333;
-    background-color: #f4f4f4;
+    /* CONFIGURATION UPDATE: Updated background with subtle gradient for modern appeal */
+    /* Changed from solid #f4f4f4 to gradient for better visual appeal */
+    background: linear-gradient(180deg, #f8f9ff 0%, #f0f4ff 100%);
     overflow-x: hidden;
 }
 
-/* Color Scheme */
+/* Color Scheme - Modern Vibrant Design */
 :root {
     --sky-blue: #87CEEB;
     --gold: #FFD700;
@@ -16,9 +18,16 @@ body {
     --text-color: #333;
     --light-bg: #fff;
     --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --gradient: linear-gradient(135deg, #87CEEB 0%, #004080 100%);
+    /* CONFIGURATION UPDATE: Updated vibrant gradient background for modern appeal */
+    /* Changed from simple sky-blue to dark-blue gradient to modern multi-color vibrant gradient */
+    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
     --border-radius: 8px;
     --transition: all 0.3s ease;
+    /* Additional modern colors for enhanced design */
+    --accent-purple: #667eea;
+    --accent-pink: #f093fb;
+    --accent-coral: #f5576c;
+    --accent-blue: #4facfe;
 }
 
 /* Specific Font for Titles */
@@ -203,6 +212,9 @@ nav a:hover, nav a.active {
     font-size: 3.5rem;
     margin-bottom: 20px;
     color: white;
+    /* Enhanced styling for better visibility with vibrant gradient */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    font-weight: 700;
     animation: fadeInUp 1s ease-out;
 }
 
@@ -214,13 +226,16 @@ nav a:hover, nav a.active {
 .typewriter {
     font-size: 1.3rem;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.9);
+    /* Enhanced text styling for better readability with vibrant gradient */
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     animation: typing 4s steps(120, end) 0.5s 1 normal both;
-    border-right: 2px solid white;
+    border-right: 2px solid rgba(255, 255, 255, 0.8);
     white-space: nowrap;
     overflow: hidden;
     width: 100%;
     max-width: 100%;
+    font-weight: 400;
 }
 
 @keyframes typing {
