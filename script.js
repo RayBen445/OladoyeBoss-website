@@ -327,4 +327,173 @@ document.addEventListener('DOMContentLoaded', () => {
         // Change quote every 8 seconds
         setInterval(updateQuote, 8000);
     }
+
+    /**
+     * Inspirational Quotes Display System
+     * 
+     * This system creates an interactive quotes display that cycles through
+     * inspirational, biblical, and ministry quotes from the quotes-data.js file.
+     * Features include manual navigation, automatic rotation, and responsive design.
+     */
+    const quotesSection = document.querySelector('.quotes-section');
+    if (quotesSection && window.QuotesData) {
+        const quoteTextElement = document.getElementById('quoteText');
+        const quoteAuthorElement = document.getElementById('quoteAuthor');
+        const quoteCategoryElement = document.getElementById('quoteCategory');
+        const quoteCounterElement = document.getElementById('quoteCounter');
+        const prevBtn = document.getElementById('prevQuote');
+        const nextBtn = document.getElementById('nextQuote');
+
+        // Get all quotes and set up the display system
+        const allQuotes = window.QuotesData.getAll();
+        let currentQuoteIndex = 0;
+        let autoRotateInterval = null;
+
+        /**
+         * Updates the quote display with the current quote
+         * Includes smooth transitions and accessibility features
+         */
+        function updateQuoteDisplay() {
+            if (allQuotes.length === 0) return;
+
+            const quote = allQuotes[currentQuoteIndex];
+            
+            // Add fade-out effect
+            const quoteCard = document.getElementById('mainQuoteCard');
+            quoteCard.style.opacity = '0.7';
+            quoteCard.style.transform = 'translateY(10px)';
+
+            setTimeout(() => {
+                // Update content
+                quoteTextElement.textContent = quote.text;
+                quoteAuthorElement.textContent = `— ${quote.author}`;
+                quoteCategoryElement.textContent = quote.category;
+                quoteCounterElement.textContent = `${currentQuoteIndex + 1} of ${allQuotes.length}`;
+
+                // Add fade-in effect
+                quoteCard.style.opacity = '1';
+                quoteCard.style.transform = 'translateY(0)';
+                
+                // Update accessibility
+                quoteTextElement.setAttribute('aria-live', 'polite');
+                
+                // Update button states
+                updateButtonStates();
+            }, 300);
+        }
+
+        /**
+         * Updates navigation button states
+         */
+        function updateButtonStates() {
+            prevBtn.disabled = currentQuoteIndex === 0;
+            nextBtn.disabled = currentQuoteIndex === allQuotes.length - 1;
+        }
+
+        /**
+         * Moves to the previous quote
+         */
+        function showPreviousQuote() {
+            if (currentQuoteIndex > 0) {
+                currentQuoteIndex--;
+                updateQuoteDisplay();
+                resetAutoRotate();
+            }
+        }
+
+        /**
+         * Moves to the next quote
+         */
+        function showNextQuote() {
+            if (currentQuoteIndex < allQuotes.length - 1) {
+                currentQuoteIndex++;
+                updateQuoteDisplay();
+                resetAutoRotate();
+            }
+        }
+
+        /**
+         * Automatically rotates to next quote (with wraparound)
+         */
+        function autoRotateQuote() {
+            currentQuoteIndex = (currentQuoteIndex + 1) % allQuotes.length;
+            updateQuoteDisplay();
+        }
+
+        /**
+         * Starts automatic quote rotation
+         */
+        function startAutoRotate() {
+            autoRotateInterval = setInterval(autoRotateQuote, 12000); // 12 seconds
+        }
+
+        /**
+         * Resets the auto-rotation timer
+         */
+        function resetAutoRotate() {
+            clearInterval(autoRotateInterval);
+            startAutoRotate();
+        }
+
+        /**
+         * Shuffles the quotes array for variety
+         */
+        function shuffleQuotes() {
+            for (let i = allQuotes.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [allQuotes[i], allQuotes[j]] = [allQuotes[j], allQuotes[i]];
+            }
+        }
+
+        // Event listeners for navigation buttons
+        prevBtn.addEventListener('click', showPreviousQuote);
+        nextBtn.addEventListener('click', showNextQuote);
+
+        // Keyboard navigation support for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (quotesSection.contains(document.activeElement) || 
+                document.activeElement === prevBtn || 
+                document.activeElement === nextBtn) {
+                if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+                    showPreviousQuote();
+                } else if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+                    showNextQuote();
+                }
+            }
+        });
+
+        // Pause auto-rotation when user hovers over the quotes section
+        quotesSection.addEventListener('mouseenter', () => {
+            clearInterval(autoRotateInterval);
+        });
+
+        quotesSection.addEventListener('mouseleave', () => {
+            startAutoRotate();
+        });
+
+        // Pause auto-rotation when tab is not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(autoRotateInterval);
+            } else {
+                startAutoRotate();
+            }
+        });
+
+        // Initialize the quotes system
+        shuffleQuotes(); // Start with shuffled quotes for variety
+        updateQuoteDisplay(); // Display first quote
+        startAutoRotate(); // Begin automatic rotation
+
+        // Add scroll-triggered animation for the quotes section
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-on-scroll');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(quotesSection);
+    }
 });

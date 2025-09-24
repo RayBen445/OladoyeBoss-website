@@ -6,6 +6,7 @@
     <title>Oladoye Author and Kingdom Voice - Home</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="quotes-data.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -57,6 +58,38 @@
                 <div class="hero-image">
                     <div class="image-placeholder">
                         <p>📚 Author & Pastor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inspirational Quotes Section -->
+        <section class="quotes-section" id="quotesSection">
+            <div class="container">
+                <h2 class="section-title">Daily Inspiration</h2>
+                <div class="quotes-container">
+                    <div class="quote-card" id="mainQuoteCard">
+                        <div class="quote-icon">💡</div>
+                        <blockquote class="quote-text" id="quoteText">
+                            Loading inspirational quote...
+                        </blockquote>
+                        <cite class="quote-author" id="quoteAuthor">
+                            — Source
+                        </cite>
+                        <div class="quote-category" id="quoteCategory">
+                            Category
+                        </div>
+                    </div>
+                    <div class="quote-controls">
+                        <button class="quote-btn" id="prevQuote" aria-label="Previous quote">
+                            <span>‹</span>
+                        </button>
+                        <div class="quote-indicators">
+                            <span class="quote-counter" id="quoteCounter">1 of 1</span>
+                        </div>
+                        <button class="quote-btn" id="nextQuote" aria-label="Next quote">
+                            <span>›</span>
+                        </button>
                     </div>
                 </div>
             </div>
