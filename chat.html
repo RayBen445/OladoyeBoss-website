@@ -150,7 +150,8 @@
                         <div class="banner-icon">⚠️</div>
                         <div class="banner-text">
                             <strong>AI Chat Configuration Required</strong>
-                            <p>To enable AI chat functionality, please configure your Google AI API key in the deployment environment.</p>
+                            <p>To enable AI chat functionality, please configure your Google AI API key as the environment variable <code>GOOGLE_AI_API_KEY</code> in your deployment platform (Vercel, Netlify, etc.).</p>
+                            <p><small>The backend API endpoint at <code>/api/chat</code> needs to be configured with your API key for secure operation.</small></p>
                         </div>
                         <button class="banner-close" onclick="this.parentElement.parentElement.style.display='none'">×</button>
                     </div>

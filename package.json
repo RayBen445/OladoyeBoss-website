@@ -1,0 +1,22 @@
+{
+  "name": "oladoye-author-website",
+  "version": "1.0.0",
+  "description": "Personal website for Faithjesus Oladoye featuring AI chat functionality",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "author",
+    "christian",
+    "ministry",
+    "ai-chat",
+    "gemini"
+  ],
+  "author": "Faithjesus Oladoye",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
