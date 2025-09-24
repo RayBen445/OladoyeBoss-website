@@ -575,6 +575,57 @@ window.QuotesData = {
             text: "Finally, be strong in the Lord and in his mighty power.",
             author: "Ephesians 6:10",
             category: "Strength"
+        },
+        // Third batch of additional biblical quotes
+        {
+            text: "Jesus answered, 'I am the way and the truth and the life. No one comes to the Father except through me.'",
+            author: "John 14:6",
+            category: "Truth"
+        },
+        {
+            text: "Above all else, guard your heart, for everything you do flows from it.",
+            author: "Proverbs 4:23",
+            category: "Heart"
+        },
+        {
+            text: "Take my yoke upon you and learn from me, for I am gentle and humble in heart, and you will find rest for your souls.",
+            author: "Matthew 11:29",
+            category: "Rest"
+        },
+        {
+            text: "Though you have not seen him, you love him; and even though you do not see him now, you believe in him and are filled with an inexpressible and glorious joy, for you are receiving the result of your faith, the salvation of your souls.",
+            author: "1 Peter 1:8-9",
+            category: "Joy"
+        },
+        {
+            text: "Neither height nor depth, nor anything else in all creation, will be able to separate us from the love of God that is in Christ Jesus our Lord.",
+            author: "Romans 8:39",
+            category: "Love"
+        },
+        {
+            text: "I praise you because I am fearfully and wonderfully made; your works are wonderful, I know that full well.",
+            author: "Psalm 139:14",
+            category: "Identity"
+        },
+        {
+            text: "Therefore, go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.",
+            author: "Matthew 28:19-20",
+            category: "Mission"
+        },
+        {
+            text: "Greater love has no one than this: to lay down one's life for one's friends.",
+            author: "John 15:13",
+            category: "Love"
+        },
+        {
+            text: "If any of you lacks wisdom, let him ask of God, who gives to all liberally and without reproach, and it will be given to him.",
+            author: "James 1:5",
+            category: "Wisdom"
+        },
+        {
+            text: "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control. Against such things there is no law.",
+            author: "Galatians 5:22-23",
+            category: "Fruit of Spirit"
         }
     ],
 
