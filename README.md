@@ -1,34 +1,14 @@
 # Faithjesus Oladoye - Author & Kingdom Voice Website
 
-A personal website for Faithjesus Oladoye featuring blog posts, book store, video store, AI chat functionality, and **real-time integration** with Selar (book store) and YouTube (video content).
+A personal website for Faithjesus Oladoye featuring blog posts, AI chat functionality, and inspiring content.
 
-## ✨ New Features
+## ✨ Features
 
-### 🔄 Real-time Integration
-- **Selar Book Store Integration**: Automatically displays new books when added to your Selar store
-- **YouTube Channel Integration**: Automatically fetches and displays new videos from your YouTube channel
-- **Live Updates**: Content updates automatically without page refresh
-- **Homepage Features**: Latest books and videos prominently displayed on homepage
-
-### 📚 Dynamic Book Store
-- Real-time synchronization with Selar store
-- Webhook integration for instant updates
-- Responsive book display with ratings and purchase links
-- Auto-refresh every 30 seconds
-
-### 🎥 Dynamic Video Store  
-- Integration with YouTube Data API v3
-- Automatic video categorization (Sermons, Teachings, Inspiration)
-- Video filtering and search functionality
-- Auto-refresh every 60 seconds
-
-## Features
-
-- **Responsive Design**: Mobile-first, fully responsive layout
-- **Real-time Content**: Live integration with Selar and YouTube
-- **AI Chat Assistant**: Powered by Google AI (Gemini) for spiritual guidance and biblical questions
-- **Telegram Integration**: Contact form submissions sent directly to Telegram
-- **Interactive Elements**: Smooth animations and transitions
+- **Professional AI Chat**: Powered by Google's Gemini AI for spiritual guidance and questions
+- **Blog Posts**: Share thoughts, insights, and spiritual reflections
+- **Contact Integration**: Direct contact form with Telegram notifications
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
+- **Modern UI**: Clean, professional design with smooth animations
 - **SEO Optimized**: Semantic HTML structure with proper meta tags
 - **Video Logo Support**: Animated video logo with fallback
 
@@ -37,12 +17,6 @@ A personal website for Faithjesus Oladoye featuring blog posts, book store, vide
 ### Required Environment Variables
 
 ```bash
-# For YouTube integration (required)
-YOUTUBE_API_KEY=your_youtube_data_api_v3_key
-
-# For Selar webhook security (recommended)
-SELAR_WEBHOOK_SECRET=your_secure_webhook_secret
-
 # For AI chat (optional)
 GOOGLE_AI_API_KEY=your_google_ai_key
 ```
@@ -50,10 +24,7 @@ GOOGLE_AI_API_KEY=your_google_ai_key
 ### Deployment
 
 1. **Set environment variables** in your hosting platform
-2. **Configure Selar webhook** to point to `https://yourdomain.com/api/selar-webhook`
-3. **Deploy** - All integrations work automatically!
-
-📖 **[Complete Setup Guide](INTEGRATION-SETUP.md)**
+2. **Deploy** - All features work automatically!
 
 ## AI Chat Setup
 
@@ -148,8 +119,6 @@ The chat interface provides helpful error messages:
 ├── index.html              # Main website HTML
 ├── about.html              # About page
 ├── blog.html               # Blog page
-├── books.html              # Books showcase
-├── videos.html             # Video library
 ├── chat.html               # AI Chat page
 ├── contact.html            # Contact form
 ├── favicon.ico             # Website favicon (16x16 icon)
@@ -171,8 +140,6 @@ The chat interface provides helpful error messages:
 - **Home**: Welcome introduction with hero section and overview
 - **About**: Personal story, mission, credentials, and statistics
 - **Blog**: Organized blog posts with categories and metadata
-- **Books**: Professional book showcase with detailed information
-- **Videos**: Video library with filtering and categorization
 - **AI Chat**: Interactive AI assistant for spiritual guidance
 - **Contact**: Enhanced contact form with Telegram integration
 
@@ -234,8 +201,6 @@ To update the logo:
 ├── index.html          # Homepage
 ├── about.html          # About page
 ├── blog.html           # Blog page
-├── books.html          # Books showcase
-├── videos.html         # Video library
 ├── chat.html           # AI Chat page
 ├── contact.html        # Contact form
 ├── style.css           # Main stylesheet
@@ -275,8 +240,7 @@ For support or questions, contact Faithjesus Oladoye through the website's conta
 
 - **Blog Section**: Latest posts and updates
 - **About Section**: Personal introduction
-- **Book Store**: Showcase of published books
-- **Video Store**: Embedded video content
+- **AI Chat**: Interactive spiritual guidance assistant
 - **Contact Form**: Direct messaging via Telegram bot integration
 
 ## Telegram Bot Setup

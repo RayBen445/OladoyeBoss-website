@@ -22,10 +22,6 @@ const __dirname = path.dirname(__filename);
 
 // Import API handlers - note: these will need fetch to be available
 import chatHandler from './api/chat.js';
-import booksHandler from './api/books.js';
-import videosHandler from './api/videos.js';
-import selarWebhookHandler from './api/selar-webhook.js';
-import youtubeHandler from './api/youtube.js';
 
 const PORT = 3000;
 const ROOT_DIR = __dirname;
@@ -68,11 +64,7 @@ function serveStaticFile(res, filePath) {
 async function handleApiRequest(req, res, pathname) {
     // Map of API endpoints to handlers
     const apiHandlers = {
-        '/api/chat': chatHandler,
-        '/api/books': booksHandler,
-        '/api/videos': videosHandler,
-        '/api/selar-webhook': selarWebhookHandler,
-        '/api/youtube': youtubeHandler
+        '/api/chat': chatHandler
     };
 
     const handler = apiHandlers[pathname];
@@ -193,19 +185,14 @@ server.listen(PORT, () => {
     console.log('');
     console.log('💡 To enable features, set environment variables:');
     console.log('   export GOOGLE_AI_API_KEY="your_google_ai_key"    # For AI chat');
-    console.log('   export YOUTUBE_API_KEY="your_youtube_api_key"    # For video updates');
-    console.log('   export SELAR_WEBHOOK_SECRET="your_webhook_secret" # For book updates');
     console.log('');
     console.log('Available pages:');
     console.log(`  • Home: http://localhost:${PORT}/`);
-    console.log(`  • Books: http://localhost:${PORT}/books.html`);
-    console.log(`  • Videos: http://localhost:${PORT}/videos.html`);
+    console.log(`  • About: http://localhost:${PORT}/about.html`);
+    console.log(`  • Blog: http://localhost:${PORT}/blog.html`);
     console.log(`  • Chat: http://localhost:${PORT}/chat.html`);
+    console.log(`  • Contact: http://localhost:${PORT}/contact.html`);
     console.log('');
     console.log('API endpoints:');
     console.log(`  • Chat: http://localhost:${PORT}/api/chat`);
-    console.log(`  • Books: http://localhost:${PORT}/api/books`);
-    console.log(`  • Videos: http://localhost:${PORT}/api/videos`);
-    console.log(`  • YouTube polling: http://localhost:${PORT}/api/youtube`);
-    console.log(`  • Selar webhook: http://localhost:${PORT}/api/selar-webhook`);
 });
